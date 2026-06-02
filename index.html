@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>右右成长记录</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family:'Nunito','PingFang SC','Microsoft YaHei',sans-serif;
+            background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 50%,#a5d6a7 100%);
+            min-height:100vh; padding:20px; color:#2e4a2e;
+        }
+        .container { max-width:1200px; margin:0 auto; }
+        .header { text-align:center; padding:30px 0; margin-bottom:10px; }
+        .header h1 { font-size:2.5em; font-weight:800; color:#1b5e20; text-shadow:2px 2px 4px rgba(0,0,0,0.1); margin-bottom:10px; }
+        .header .subtitle { font-size:1.1em; color:#4a7c4e; font-weight:600; }
+        .nav { display:flex; justify-content:center; gap:15px; margin-bottom:15px; flex-wrap:wrap; }
+        .nav-btn {
+            padding:12px 30px; border:none; border-radius:25px;
+            background:rgba(255,255,255,0.8); color:#2e7d32; font-size:1em; font-weight:700;
+            cursor:pointer; transition:all 0.3s ease; box-shadow:0 4px 15px rgba(0,0,0,0.1); backdrop-filter:blur(10px);
+        }
+        .nav-btn:hover,.nav-btn.active { background:#4CAF50; color:white; transform:translateY(-2px); box-shadow:0 6px 20px rgba(76,175,80,0.4); }
+        .filter-bar {
+            display:flex; justify-content:center; gap:10px; margin-bottom:25px; flex-wrap:wrap;
+        }
+        .filter-btn {
+            padding:8px 22px; border:2px solid rgba(76,175,80,0.3); border-radius:20px;
+            background:rgba(255,255,255,0.7); color:#2e7d32; font-size:0.9em; font-weight:600;
+            cursor:pointer; transition:all 0.3s ease; backdrop-filter:blur(5px);
+        }
+        .filter-btn:hover { border-color:#4CAF50; background:rgba(255,255,255,0.9); }
+        .filter-btn.active { background:#4CAF50; color:white; border-color:#4CAF50; box-shadow:0 4px 12px rgba(76,175,80,0.3); }
+        .dashboard { display:none; }
+        .dashboard.active { display:block; }
+        .stats-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-bottom:30px; }
+        .stat-card {
+            background:rgba(255,255,255,0.85); border-radius:20px; padding:25px; text-align:center;
+            box-shadow:0 8px 32px rgba(0,0,0,0.1); backdrop-filter:blur(10px); border:2px solid rgba(255,255,255,0.5); transition:transform 0.3s ease;
+        }
+        .stat-card:hover { transform:translateY(-5px); }
+        .stat-icon { font-size:2.5em; margin-bottom:10px; }
+        .stat-value { font-size:2em; font-weight:800; color:#1b5e20; margin-bottom:5px; }
+        .stat-label { font-size:0.9em; color:#666; font-weight:600; }
+        .stat-sub { font-size:0.8em; color:#888; margin-top:5px; }
+        .chart-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(450px,1fr)); gap:25px; margin-bottom:30px; }
+        .chart-card { background:rgba(255,255,255,0.85); border-radius:20px; padding:25px; box-shadow:0 8px 32px rgba(0,0,0,0.1); backdrop-filter:blur(10px); border:2px solid rgba(255,255,255,0.5); }
+        .chart-title { font-size:1.2em; font-weight:700; color:#1b5e20; margin-bottom:15px; display:flex; align-items:center; gap:8px; }
+        .chart-empty { text-align:center; padding:40px 20px; color:#999; font-size:0.95em; }
+        .cards-section { display:none; }
+        .cards-section.active { display:block; }
+        .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(350px,1fr)); gap:25px; }
+        .daily-card {
+            background:rgba(255,255,255,0.9); border-radius:20px; padding:25px;
+            box-shadow:0 8px 32px rgba(0,0,0,0.1); backdrop-filter:blur(10px); border:2px solid rgba(255,255,255,0.5); transition:transform 0.3s ease;
+        }
+        .daily-card:hover { transform:translateY(-5px) rotate(1deg); }
+        .daily-card.hidden { display:none; }
+        .card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:15px; flex-wrap:wrap; gap:10px; }
+        .card-date { font-size:1.4em; font-weight:800; color:#1b5e20; }
+        .card-badges { display:flex; flex-wrap:wrap; gap:5px; }
+        .badge { padding:5px 12px; border-radius:15px; font-size:0.8em; font-weight:700; color:white; white-space:nowrap; }
+        .card-body { margin-bottom:15px; }
+        .item { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px dashed rgba(0,0,0,0.1); font-size:0.9em; }
+        .item:last-child { border-bottom:none; }
+        .time { font-weight:700; color:#666; min-width:70px; font-size:0.85em; }
+        .tag { padding:3px 10px; border-radius:12px; font-size:0.85em; font-weight:600; color:white; white-space:nowrap; }
+        .tag.milk { background:#FF8A65; }
+        .tag.food { background:#BA68C8; }
+        .tag.sleep { background:#64B5F6; }
+        .tag.pee { background:#4FC3F7; }
+        .tag.poop { background:#8D6E63; }
+        .note { font-size:0.8em; color:#888; font-style:italic; }
+        .card-footer { background:rgba(129,199,132,0.15); border-radius:12px; padding:12px 15px; font-size:0.85em; color:#2e7d32; }
+        .week-tip-title { font-weight:700; font-size:0.95em; margin-bottom:8px; color:#1b5e20; border-bottom:1px dashed rgba(76,175,80,0.3); padding-bottom:5px; }
+        .week-tip-list { list-style:none; padding:0; margin:0; }
+        .week-tip-list li { padding:4px 0; padding-left:8px; border-left:2px solid rgba(76,175,80,0.3); margin-bottom:3px; line-height:1.4; }
+        .tips-section { margin-top:30px; }
+        .tips-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:30px; }
+        .tip-card { background:rgba(255,255,255,0.9); border-radius:20px; padding:25px; box-shadow:0 8px 32px rgba(0,0,0,0.1); border:2px solid rgba(255,255,255,0.5); }
+        .tip-card h3 { font-size:1.1em; color:#1b5e20; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid rgba(76,175,80,0.2); }
+        .tip-card ul { list-style:none; padding:0; margin:0; }
+        .tip-card ul li { padding:6px 0; padding-left:10px; border-left:3px solid rgba(76,175,80,0.3); margin-bottom:4px; font-size:0.9em; line-height:1.5; color:#33691e; }
+        .edu-section { margin-top:30px; }
+        .edu-section-title { text-align:center; font-size:1.4em; color:#1b5e20; margin-bottom:20px; font-weight:700; }
+        .edu-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:15px; }
+        .edu-card { background:rgba(255,255,255,0.9); border-radius:16px; padding:18px; box-shadow:0 6px 20px rgba(0,0,0,0.08); border:2px solid rgba(255,255,255,0.5); transition:transform 0.3s ease; }
+        .edu-card:hover { transform:translateY(-3px); }
+        .edu-day { font-size:0.85em; font-weight:700; color:#4CAF50; margin-bottom:5px; }
+        .edu-type { font-size:1em; font-weight:700; color:#1b5e20; margin-bottom:3px; }
+        .edu-activity { font-size:0.95em; color:#33691e; font-weight:600; margin-bottom:5px; }
+        .edu-detail { font-size:0.85em; color:#558b2f; line-height:1.4; }
+        .no-data-msg { text-align:center; padding:60px 20px; color:#888; font-size:1.1em; background:rgba(255,255,255,0.6); border-radius:20px; margin-bottom:20px; }
+        @media (max-width:768px) {
+            .chart-grid { grid-template-columns:1fr; }
+            .cards-grid { grid-template-columns:1fr; }
+            .header h1 { font-size:1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌱 右右成长记录</h1>
+            <div class="subtitle">10月龄26天 · 2026年6月2日</div>
+        </div>
+        <div class="nav">
+            <button class="nav-btn active" onclick="showSection('dashboard')">📊 仪表盘</button>
+            <button class="nav-btn" onclick="showSection('cards')">📝 每日卡片</button>
+        </div>
+
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="7">近7天</button>
+            <button class="filter-btn" data-filter="30">近30天</button>
+            <button class="filter-btn" data-filter="month">本月</button>
+        </div>
+
+        <div class="dashboard active" id="dashboard-section">
+            <div class="stats-grid" id="statsGrid"></div>
+            <div class="chart-grid" id="chartGrid">
+                <div class="chart-card"><div class="chart-title">📈 每日奶粉量趋势</div><canvas id="milkChart"></canvas></div>
+                <div class="chart-card"><div class="chart-title">🌙 夜间睡眠时长</div><canvas id="sleepChart"></canvas></div>
+                <div class="chart-card"><div class="chart-title">💧💩 每日排泄统计</div><canvas id="pottyChart"></canvas></div>
+                <div class="chart-card"><div class="chart-title">🥄 辅食顿数变化</div><canvas id="foodChart"></canvas></div>
+            </div>
+            <div class="tips-section">
+                <div style="text-align:center;font-size:1.4em;color:#1b5e20;margin-bottom:20px;font-weight:700;">💡 本月育儿小贴士</div>
+                <div class="tips-grid"><div class="tip-card"><h3>第1周 · 扶站与爬行精炼</h3><ul><li>🚶 大运动：10月龄宝宝扶站越来越稳，鼓励右右扶着家具横移，也可以用推车练习迈步</li><li>🗣️ 语言：开始理解简单指令"给我""不行"，多和右右对话，用夸张语调吸引模仿</li><li>🥄 饮食：辅食可以逐步增加颗粒感——软烂米饭、碎菜肉末，锻炼咀嚼能力</li><li>🦷 口腔：继续用湿纱布或硅胶指套清洁牙齿，出牙期注意安抚</li></ul></div><div class="tip-card"><h3>第2周 · 指物与模仿</h3><ul><li>👆 指物：右右开始用食指指东西，这是沟通的重要里程碑，回应他的指向并命名物品</li><li>📚 阅读：厚纸板书最合适，让右右自己翻页，指着图片说出名称</li><li>🎮 游戏：容器游戏——把玩具放进去再拿出来，理解"里面""外面"</li><li>😴 睡眠：保持规律作息，夜间睡眠10-12小时，白天2次小睡</li></ul></div><div class="tip-card"><h3>第3周 · 分离焦虑与安全感</h3><ul><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul></div><div class="tip-card"><h3>第4周 · 习惯巩固与月度回顾</h3><ul><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul></div></div>
+            </div>
+            <div class="edu-section">
+                <div class="edu-section-title">🎨 每日15分钟早教计划</div>
+                <div class="edu-grid"><div class="edu-card">
+            <div class="edu-day">周一</div>
+            <div class="edu-type">大运动</div>
+            <div class="edu-activity">扶走推车赛</div>
+            <div class="edu-detail">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌</div>
+        </div><div class="edu-card">
+            <div class="edu-day">周二</div>
+            <div class="edu-type">精细动作</div>
+            <div class="edu-activity">撕纸乐</div>
+            <div class="edu-detail">给右右彩色纸巾/便签纸，让他自由撕扯，锻炼指尖力量和双手配合</div>
+        </div><div class="edu-card">
+            <div class="edu-day">周三</div>
+            <div class="edu-type">语言启蒙</div>
+            <div class="edu-activity">动物叫声</div>
+            <div class="edu-detail">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音</div>
+        </div><div class="edu-card">
+            <div class="edu-day">周四</div>
+            <div class="edu-type">认知游戏</div>
+            <div class="edu-activity">盒子寻宝</div>
+            <div class="edu-detail">把玩具放进纸盒，让右右打开找出来；再进阶到盖上盖子让他自己掀开</div>
+        </div><div class="edu-card">
+            <div class="edu-day">周五</div>
+            <div class="edu-type">音乐律动</div>
+            <div class="edu-activity">摇摆舞</div>
+            <div class="edu-detail">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动</div>
+        </div><div class="edu-card">
+            <div class="edu-day">周六</div>
+            <div class="edu-type">感官探索</div>
+            <div class="edu-activity">手指画</div>
+            <div class="edu-detail">用可食用颜料（酸奶+食用色素），让右右在浴室瓷砖上自由涂画，好冲洗</div>
+        </div><div class="edu-card">
+            <div class="edu-day">周日</div>
+            <div class="edu-type">社交互动</div>
+            <div class="edu-activity">飞吻游戏</div>
+            <div class="edu-detail">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，练习社交手势</div>
+        </div></div>
+            </div>
+        </div>
+
+        <div class="cards-section" id="cards-section">
+            <div class="cards-grid" id="cardsGrid">
+        <div class="daily-card" id="card-5月13日" data-date="2026-05-13">
+            <div class="card-header">
+                <div class="card-date">5月13日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 360ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 360ml</span> <span class="note">初始第1天</span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第2周 · 指物与模仿</div>
+                <ul class="week-tip-list"><li>👆 指物：右右开始用食指指东西，这是沟通的重要里程碑，回应他的指向并命名物品</li><li>📚 阅读：厚纸板书最合适，让右右自己翻页，指着图片说出名称</li><li>🎮 游戏：容器游戏——把玩具放进去再拿出来，理解"里面""外面"</li><li>😴 睡眠：保持规律作息，夜间睡眠10-12小时，白天2次小睡</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月14日" data-date="2026-05-14">
+            <div class="card-header">
+                <div class="card-date">5月14日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 340ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 340ml</span> <span class="note">初始第2天</span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第2周 · 指物与模仿</div>
+                <ul class="week-tip-list"><li>👆 指物：右右开始用食指指东西，这是沟通的重要里程碑，回应他的指向并命名物品</li><li>📚 阅读：厚纸板书最合适，让右右自己翻页，指着图片说出名称</li><li>🎮 游戏：容器游戏——把玩具放进去再拿出来，理解"里面""外面"</li><li>😴 睡眠：保持规律作息，夜间睡眠10-12小时，白天2次小睡</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月15日" data-date="2026-05-15">
+            <div class="card-header">
+                <div class="card-date">5月15日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 530ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 530ml</span> <span class="note">初始第3天</span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月16日" data-date="2026-05-16">
+            <div class="card-header">
+                <div class="card-date">5月16日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 720ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月17日" data-date="2026-05-17">
+            <div class="card-header">
+                <div class="card-date">5月17日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 720ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月18日" data-date="2026-05-18">
+            <div class="card-header">
+                <div class="card-date">5月18日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 680ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 680ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月19日" data-date="2026-05-19">
+            <div class="card-header">
+                <div class="card-date">5月19日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 700ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时10分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:10</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">11:35</span> <span class="tag food">🥄 小米南瓜蛋黄粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">12:40</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">15:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 南瓜小米粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:10</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">22:50</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div><div class="item"><span class="time">23:50</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:20-08:30</span> <span class="tag sleep">😴 夜间长睡眠 连续8小时10分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月20日" data-date="2026-05-20">
+            <div class="card-header">
+                <div class="card-date">5月20日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 640ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 640ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">2顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月21日" data-date="2026-05-21">
+            <div class="card-header">
+                <div class="card-date">5月21日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 630ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时40分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">9:30</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 土豆猪肉南瓜餐</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:50</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">17:40</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">19:00</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:24-08:30</span> <span class="tag sleep">😴 夜间长睡眠 连续8小时6分钟</span></div><div class="item"><span class="time">9:30-11:00</span> <span class="tag sleep">😴 白天小睡 1小时30分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
+                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月22日" data-date="2026-05-22">
+            <div class="card-header">
+                <div class="card-date">5月22日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 690ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:20</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:55</span> <span class="tag food">🥄 丝瓜猪肉米粉粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:20</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div><div class="item"><span class="time">16:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:40</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:40-09:30</span> <span class="tag sleep">😴 夜间长睡眠 连续8小时50分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月23日" data-date="2026-05-23">
+            <div class="card-header">
+                <div class="card-date">5月23日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 590ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 590ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">2顿</span></div>
+                
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月24日" data-date="2026-05-24">
+            <div class="card-header">
+                <div class="card-date">5月24日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 820ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 蛋黄青菜粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 青菜粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:35-07:25</span> <span class="tag sleep">😴 夜间长睡眠 连续9小时25分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月25日" data-date="2026-05-25">
+            <div class="card-header">
+                <div class="card-date">5月25日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 695ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时40分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">8:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜鸡丝小米粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:57</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">21:40-07:30</span> <span class="tag sleep">😴 夜间长睡眠 连续9小时50分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月26日" data-date="2026-05-26">
+            <div class="card-header">
+                <div class="card-date">5月26日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 620ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时10分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 粥 蛋黄 青菜</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 粥 青菜</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:20-10:30</span> <span class="tag sleep">😴 夜间长睡眠 累计9小时10分钟，8:20-9:00醒1小时</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月27日" data-date="2026-05-27">
+            <div class="card-header">
+                <div class="card-date">5月27日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 680ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜鸡丝小米粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:57</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:40-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续7小时20分钟</span></div><div class="item"><span class="time">12:45-14:05</span> <span class="tag sleep">😴 白天小睡 1小时20分钟</span></div><div class="item"><span class="time">20:40-23:35</span> <span class="tag sleep">😴 傍晚小睡 2小时55分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月28日" data-date="2026-05-28">
+            <div class="card-header">
+                <div class="card-date">5月28日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时25分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 蛋黄青菜粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 青菜粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:35-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续9小时25分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月29日" data-date="2026-05-29">
+            <div class="card-header">
+                <div class="card-date">5月29日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 750ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 苋菜肝粉小米粥+小土豆1.5个</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:10</span> <span class="tag milk">🍼 奶粉 200ml</span> <span class="note"></span></div><div class="item"><span class="time">17:00</span> <span class="tag food">🥄 苋菜小米粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">18:40</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:10-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续7小时50分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月30日" data-date="2026-05-30">
+            <div class="card-header">
+                <div class="card-date">5月30日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 690ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 10小时15分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:45</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:30</span> <span class="tag food">🥄 苋菜肝粉小米粥+小土豆1.5个</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">17:00</span> <span class="tag food">🥄 苋菜小米粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">18:40</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:05-08:20</span> <span class="tag sleep">😴 夜间长睡眠 连续10小时15分钟</span></div><div class="item"><span class="time">11:00-11:40</span> <span class="tag sleep">😴 白天小睡 40分钟</span></div><div class="item"><span class="time">14:40-16:30</span> <span class="tag sleep">😴 白天小睡 1小时50分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-5月31日" data-date="2026-05-31">
+            <div class="card-header">
+                <div class="card-date">5月31日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 750ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜鸡丝小米粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:57</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:40-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续7小时20分钟</span></div><div class="item"><span class="time">12:45-14:05</span> <span class="tag sleep">😴 白天小睡 1小时20分钟</span></div><div class="item"><span class="time">20:40-23:35</span> <span class="tag sleep">😴 傍晚小睡 2小时55分钟</span></div>
+                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
+                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月1日" data-date="2026-06-01">
+            <div class="card-header">
+                <div class="card-date">6月1日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时25分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 粥+蛋黄+青菜</span> <span class="note"></span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 粥+青菜</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:35-8:00</span> <span class="tag sleep">😴 夜间睡眠 约9小时25分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">8:20, 12:00, 13:45, 16:10, 18:40, 20:00, 22:12</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">9:00</span></div>
+            </div>
+            <div class="card-footer">
+                <div class="week-tip-title">第1周 · 扶站与爬行精炼</div>
+                <ul class="week-tip-list"><li>🚶 大运动：10月龄宝宝扶站越来越稳，鼓励右右扶着家具横移，也可以用推车练习迈步</li><li>🗣️ 语言：开始理解简单指令"给我""不行"，多和右右对话，用夸张语调吸引模仿</li><li>🥄 饮食：辅食可以逐步增加颗粒感——软烂米饭、碎菜肉末，锻炼咀嚼能力</li><li>🦷 口腔：继续用湿纱布或硅胶指套清洁牙齿，出牙期注意安抚</li></ul>
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        const allData = [{"date": "5月13日", "dateISO": "2026-05-13", "milk": 360, "pee": 3, "poop": 3, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "初始记录，奶量偏低，排便偏多"}, {"date": "5月14日", "dateISO": "2026-05-14", "milk": 340, "pee": 3, "poop": 1, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量持续偏低，排便规律"}, {"date": "5月15日", "dateISO": "2026-05-15", "milk": 530, "pee": 5, "poop": 2, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量提升，排便规律"}, {"date": "5月16日", "dateISO": "2026-05-16", "milk": 720, "pee": 4, "poop": 2, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量达标，排便规律"}, {"date": "5月17日", "dateISO": "2026-05-17", "milk": 720, "pee": 4, "poop": 1, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量稳定达标，排便健康"}, {"date": "5月18日", "dateISO": "2026-05-18", "milk": 680, "pee": 6, "poop": 1, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量稳定，排尿充足"}, {"date": "5月19日", "dateISO": "2026-05-19", "milk": 700, "pee": 8, "poop": 3, "food": 2, "sleep_time": "00:20", "sleep_duration": "8小时10分钟", "sleep_hours": 8, "sleep_mins": 10, "sleep_total_mins": 490, "comment": "奶量达标，辅食升级为2顿，排尿充足，睡眠连续"}, {"date": "5月20日", "dateISO": "2026-05-20", "milk": 640, "pee": 7, "poop": 1, "food": 2, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量达标，辅食稳定2顿，排便健康"}, {"date": "5月21日", "dateISO": "2026-05-21", "milk": 630, "pee": 7, "poop": 2, "food": 2, "sleep_time": "00:24", "sleep_duration": "9小时40分钟", "sleep_hours": 9, "sleep_mins": 40, "sleep_total_mins": 580, "comment": "奶量达标，辅食稳定，睡眠时长充足"}, {"date": "5月22日", "dateISO": "2026-05-22", "milk": 690, "pee": 5, "poop": 2, "food": 2, "sleep_time": "00:40", "sleep_duration": "8小时50分钟", "sleep_hours": 8, "sleep_mins": 50, "sleep_total_mins": 530, "comment": "奶量达标，辅食稳定，排便健康"}, {"date": "5月23日", "dateISO": "2026-05-23", "milk": 590, "pee": 4, "poop": 1, "food": 2, "sleep_time": "夜间偏晚", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量接近达标下限，辅食稳定2顿"}, {"date": "5月24日", "dateISO": "2026-05-24", "milk": 820, "pee": 6, "poop": 2, "food": 1, "sleep_time": "21:40", "sleep_duration": "9小时50分钟", "sleep_hours": 9, "sleep_mins": 50, "sleep_total_mins": 590, "comment": "奶量偏高，辅食1顿，入睡时间大幅提前，睡眠质量优秀"}, {"date": "5月25日", "dateISO": "2026-05-25", "milk": 695, "pee": 8, "poop": 1, "food": 2, "sleep_time": "21:40", "sleep_duration": "9小时40分钟", "sleep_hours": 9, "sleep_mins": 40, "sleep_total_mins": 580, "comment": "奶量完美达标，辅食2顿，入睡时间优秀，排尿充足"}, {"date": "5月26日", "dateISO": "2026-05-26", "milk": 620, "pee": 7, "poop": 1, "food": 2, "sleep_time": "00:00", "sleep_duration": "8小时10分钟", "sleep_hours": 8, "sleep_mins": 10, "sleep_total_mins": 490, "comment": "奶量达标，辅食2顿，入睡时间回退，睡眠连续"}, {"date": "5月27日", "dateISO": "2026-05-27", "milk": 680, "pee": 6, "poop": 1, "food": 2, "sleep_time": "00:20", "sleep_duration": "7小时20分钟", "sleep_hours": 7, "sleep_mins": 20, "sleep_total_mins": 440, "comment": "奶量达标，辅食2顿，睡眠时长偏短"}, {"date": "5月28日", "dateISO": "2026-05-28", "milk": 720, "pee": 6, "poop": 2, "food": 2, "sleep_time": "22:35", "sleep_duration": "9小时25分钟", "sleep_hours": 9, "sleep_mins": 25, "sleep_total_mins": 565, "comment": "奶量完美达标，辅食2顿，入睡时间优秀，睡眠充足"}, {"date": "5月29日", "dateISO": "2026-05-29", "milk": 750, "pee": 6, "poop": 1, "food": 2, "sleep_time": "00:10", "sleep_duration": "7小时50分钟", "sleep_hours": 7, "sleep_mins": 50, "sleep_total_mins": 470, "comment": "奶量达标，辅食2顿，睡眠时长偏短"}, {"date": "5月30日", "dateISO": "2026-05-30", "milk": 690, "pee": 5, "poop": 2, "food": 2, "sleep_time": "22:05", "sleep_duration": "10小时15分钟", "sleep_hours": 10, "sleep_mins": 15, "sleep_total_mins": 615, "comment": "奶量完美达标，辅食2顿，入睡时间优秀，睡眠时长拉满"}, {"date": "5月31日", "dateISO": "2026-05-31", "milk": 750, "pee": 6, "poop": 1, "food": 2, "sleep_time": "00:40", "sleep_duration": "7小时20分钟", "sleep_hours": 7, "sleep_mins": 20, "sleep_total_mins": 440, "comment": "奶量达标，辅食2顿，睡眠时长偏短"}, {"date": "6月1日", "dateISO": "2026-06-01", "milk": 720, "pee": 7, "poop": 1, "food": 2, "sleep_time": "22:35", "sleep_duration": "9小时25分钟", "sleep_hours": 9, "sleep_mins": 25, "sleep_total_mins": 565, "comment": "奶粉720ml共5次，辅食2顿，小便7次大便1次，夜睡9h25m质量不错"}];
+        let currentFilter = 7;
+        let charts = {};
+
+        // 筛选器按钮绑定
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const val = this.getAttribute('data-filter');
+                setFilter(val === 'month' ? 'month' : parseInt(val));
+            });
+        });
+
+        function showSection(section) {
+            document.querySelectorAll('.dashboard,.cards-section').forEach(el=>el.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(el=>el.classList.remove('active'));
+            if(section==='dashboard'){
+                document.getElementById('dashboard-section').classList.add('active');
+                document.querySelectorAll('.nav-btn')[0].classList.add('active');
+            } else {
+                document.getElementById('cards-section').classList.add('active');
+                document.querySelectorAll('.nav-btn')[1].classList.add('active');
+            }
+        }
+
+        function parseLocalDate(isoStr) {
+            const parts = isoStr.split('-');
+            return new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
+        }
+
+        function getFilteredData() {
+            const now = new Date();
+            const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            return allData.filter(d => {
+                if (!d.dateISO) return false;
+                const dd = parseLocalDate(d.dateISO);
+                if (currentFilter === 'month') {
+                    return dd.getMonth() === now.getMonth() && dd.getFullYear() === now.getFullYear();
+                } else {
+                    const daysAgo = new Date(todayStart);
+                    daysAgo.setDate(daysAgo.getDate() - currentFilter + 1);
+                    return dd >= daysAgo;
+                }
+            });
+        }
+
+        function calcStats(data) {
+            if (!data.length) return { avgMilk:0, maxMilk:0, minMilk:0, avgPee:0, avgPoop:0, avgFood:0, avgSleepH:0, avgSleepM:0, sleepDays:0, totalDays:0 };
+            const milks = data.map(d=>d.milk).filter(v=>v>0);
+            const pees = data.map(d=>d.pee).filter(v=>v>0);
+            const poops = data.map(d=>d.poop).filter(v=>v>0);
+            const foods = data.map(d=>d.food).filter(v=>v>0);
+            const sleeps = data.filter(d=>d.sleep_total_mins>0);
+            const avg = arr => arr.length ? arr.reduce((a,b)=>a+b,0)/arr.length : 0;
+            const avgSleep = sleeps.length ? sleeps.reduce((a,b)=>a+b.sleep_total_mins,0)/sleeps.length : 0;
+            return {
+                avgMilk: Math.round(avg(milks)),
+                maxMilk: milks.length ? Math.max(...milks) : 0,
+                minMilk: milks.length ? Math.min(...milks) : 0,
+                avgPee: avg(pees).toFixed(1),
+                avgPoop: avg(poops).toFixed(1),
+                avgFood: avg(foods).toFixed(1),
+                avgSleepH: Math.floor(avgSleep/60),
+                avgSleepM: Math.round(avgSleep%60),
+                sleepDays: sleeps.length,
+                totalDays: data.length
+            };
+        }
+
+        function renderStats(stats) {
+            document.getElementById('statsGrid').innerHTML = `
+                <div class="stat-card"><div class="stat-icon">🍼</div><div class="stat-value">${stats.avgMilk}</div><div class="stat-label">日均奶粉量 (ml)</div><div class="stat-sub">最高 ${stats.maxMilk}ml / 最低 ${stats.minMilk}ml</div></div>
+                <div class="stat-card"><div class="stat-icon">🥄</div><div class="stat-value">${stats.avgFood}</div><div class="stat-label">日均辅食 (顿)</div><div class="stat-sub">三餐两点心模式</div></div>
+                <div class="stat-card"><div class="stat-icon">😴</div><div class="stat-value">${stats.avgSleepH}h${stats.avgSleepM}m</div><div class="stat-label">平均夜间睡眠</div><div class="stat-sub">共记录 ${stats.sleepDays} 天</div></div>
+                <div class="stat-card"><div class="stat-icon">💧</div><div class="stat-value">${stats.avgPee}</div><div class="stat-label">日均小便 (次)</div></div>
+                <div class="stat-card"><div class="stat-icon">💩</div><div class="stat-value">${stats.avgPoop}</div><div class="stat-label">日均大便 (次)</div></div>
+                <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-value">${stats.totalDays}</div><div class="stat-label">记录天数</div><div class="stat-sub">筛选范围内</div></div>
+            `;
+        }
+
+        const chartColors={primary:'#4CAF50',accent:'#FF8A65',purple:'#BA68C8',blue:'#64B5F6',brown:'#8D6E63'};
+
+        function makeChartOptions(overrides) {
+            return Object.assign({}, {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: { legend: { labels: { font: { family:'Nunito', size:12 }, color:'#2e4a2e' } } },
+                scales: {
+                    y: { beginAtZero:true, grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ font:{ family:'Nunito' }, color:'#666' } },
+                    x: { grid:{ display:false }, ticks:{ font:{ family:'Nunito', size:10 }, color:'#666', maxRotation:45 } }
+                }
+            }, overrides || {});
+        }
+
+        // Short date label helper
+        function shortDate(dateStr) {
+            return dateStr.replace('月','.').replace('日','');
+        }
+
+        function renderCharts(data) {
+            Object.keys(charts).forEach(key => {
+                try { charts[key].destroy(); } catch(e) {}
+            });
+            charts = {};
+
+            if (!data.length) {
+                document.getElementById('chartGrid').innerHTML = `
+                    <div class="chart-card"><div class="chart-title">📈 每日奶粉量趋势</div><div class="chart-empty">暂无数据，请切换筛选范围</div></div>
+                    <div class="chart-card"><div class="chart-title">🌙 夜间睡眠时长</div><div class="chart-empty">暂无数据</div></div>
+                    <div class="chart-card"><div class="chart-title">💧💩 每日排泄统计</div><div class="chart-empty">暂无数据</div></div>
+                    <div class="chart-card"><div class="chart-title">🥄 辅食顿数变化</div><div class="chart-empty">暂无数据</div></div>
+                `;
+                return;
+            }
+
+            document.getElementById('chartGrid').innerHTML = `
+                <div class="chart-card"><div class="chart-title">📈 每日奶粉量趋势</div><canvas id="milkChart"></canvas></div>
+                <div class="chart-card"><div class="chart-title">🌙 夜间睡眠时长</div><canvas id="sleepChart"></canvas></div>
+                <div class="chart-card"><div class="chart-title">💧💩 每日排泄统计</div><canvas id="pottyChart"></canvas></div>
+                <div class="chart-card"><div class="chart-title">🥄 辅食顿数变化</div><canvas id="foodChart"></canvas></div>
+            `;
+
+            const labels = data.map(d=>shortDate(d.date));
+            const milks = data.map(d=>d.milk);
+            const pees = data.map(d=>d.pee);
+            const poops = data.map(d=>d.poop);
+            const foods = data.map(d=>d.food);
+            const sleepData_full = data.filter(d=>d.sleep_total_mins>0);
+            const sleepLabels = sleepData_full.map(d=>shortDate(d.date));
+            const sleepData = sleepData_full.map(d=>+(d.sleep_total_mins/60).toFixed(2));
+
+            charts.milk = new Chart(document.getElementById('milkChart'),{
+                type:'line',
+                data:{labels,datasets:[
+                    {label:'奶粉量 (ml)',data:milks,borderColor:chartColors.accent,backgroundColor:'rgba(255,138,101,0.2)',borderWidth:3,pointBackgroundColor:chartColors.accent,pointRadius:5,pointHoverRadius:8,tension:0.4,fill:true},
+                    {label:'达标线 (600ml)',data:Array(labels.length).fill(600),borderColor:chartColors.primary,borderWidth:2,borderDash:[5,5],pointRadius:0,fill:false}
+                ]},
+                options:makeChartOptions()
+            });
+
+            if (sleepData.length) {
+                charts.sleep = new Chart(document.getElementById('sleepChart'),{
+                    type:'bar',
+                    data:{labels:sleepLabels,datasets:[{label:'睡眠时长 (小时)',data:sleepData,backgroundColor:chartColors.blue,borderRadius:10,borderSkipped:false}]},
+                    options:makeChartOptions({ scales:{ y:{ beginAtZero:true, suggestedMax:12, grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ font:{ family:'Nunito' }, color:'#666' } } } })
+                });
+            }
+
+            charts.potty = new Chart(document.getElementById('pottyChart'),{
+                type:'bar',
+                data:{labels,datasets:[
+                    {label:'小便 (次)',data:pees,backgroundColor:chartColors.blue,borderRadius:8},
+                    {label:'大便 (次)',data:poops,backgroundColor:chartColors.brown,borderRadius:8}
+                ]},
+                options:makeChartOptions()
+            });
+
+            charts.food = new Chart(document.getElementById('foodChart'),{
+                type:'line',
+                data:{labels,datasets:[{label:'辅食顿数',data:foods,borderColor:chartColors.purple,backgroundColor:'rgba(186,104,200,0.2)',borderWidth:3,pointBackgroundColor:chartColors.purple,pointRadius:6,tension:0.3,fill:true}]},
+                options:makeChartOptions({ scales:{ y:{ beginAtZero:true, max:3, grid:{ color:'rgba(0,0,0,0.05)' }, ticks:{ stepSize:1, font:{ family:'Nunito' }, color:'#666' } } } })
+            });
+        }
+
+        function filterCards(data) {
+            const visibleDates = new Set(data.map(d=>d.dateISO));
+            document.querySelectorAll('.daily-card').forEach(card => {
+                const cardDate = card.getAttribute('data-date');
+                card.classList.toggle('hidden', !visibleDates.has(cardDate));
+            });
+            const cardsGrid = document.getElementById('cardsGrid');
+            let noDataEl = document.getElementById('noDataCards');
+            if (data.length === 0) {
+                if (!noDataEl) {
+                    noDataEl = document.createElement('div');
+                    noDataEl.id = 'noDataCards';
+                    noDataEl.className = 'no-data-msg';
+                    noDataEl.textContent = '📝 当前筛选范围内暂无记录';
+                    cardsGrid.parentNode.insertBefore(noDataEl, cardsGrid);
+                }
+            } else {
+                if (noDataEl) noDataEl.remove();
+            }
+        }
+
+        function setFilter(val) {
+            currentFilter = val;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                const btnVal = btn.getAttribute('data-filter');
+                const match = (val === 'month') ? (btnVal === 'month') : (btnVal === String(val));
+                btn.classList.toggle('active', match);
+            });
+            const data = getFilteredData();
+            renderStats(calcStats(data));
+            renderCharts(data);
+            filterCards(data);
+        }
+
+        // ===== 初始化 =====
+        setFilter(30);  // 默认显示近30天（5月+6月数据更完整）
+    </script>
+</body>
+</html>
