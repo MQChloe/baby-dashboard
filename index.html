@@ -103,6 +103,7 @@
         .card-assessment-title { font-weight:700; font-size:0.95em; margin-bottom:8px; color:#1b5e20; }
         .card-assessment-row { display:flex; justify-content:space-between; align-items:center; padding:3px 0; font-size:0.85em; }
         .card-assessment-badge { padding:2px 8px; border-radius:8px; font-weight:600; font-size:0.82em; }
+        .card-assessment-tip { font-size:0.8em; color:#e65100; background:rgba(255,152,0,0.12); border-radius:8px; padding:5px 8px; margin-top:6px; line-height:1.4; }
         @media (max-width:768px) {
             .chart-grid { grid-template-columns:1fr; }
             .cards-grid { grid-template-columns:1fr; }
@@ -114,7 +115,7 @@
     <div class="container">
         <div class="header">
             <h1>🌱 右右成长记录</h1>
-            <div class="subtitle">10月龄26天 · 2026年6月2日</div>
+            <div class="subtitle">11月龄28天 · 2026年7月5日</div>
         </div>
         <div class="nav">
             <button class="nav-btn active" onclick="showSection('dashboard')">📊 仪表盘</button>
@@ -137,469 +138,51 @@
             </div>
             <div class="tips-section">
                 <div style="text-align:center;font-size:1.4em;color:#1b5e20;margin-bottom:20px;font-weight:700;">💡 本月育儿小贴士</div>
-                <div class="tips-grid"><div class="tip-card"><h3>第1周 · 扶站与爬行精炼</h3><ul><li>🚶 大运动：10月龄宝宝扶站越来越稳，鼓励右右扶着家具横移，也可以用推车练习迈步</li><li>🗣️ 语言：开始理解简单指令"给我""不行"，多和右右对话，用夸张语调吸引模仿</li><li>🥄 饮食：辅食可以逐步增加颗粒感——软烂米饭、碎菜肉末，锻炼咀嚼能力</li><li>🦷 口腔：继续用湿纱布或硅胶指套清洁牙齿，出牙期注意安抚</li></ul></div><div class="tip-card"><h3>第2周 · 指物与模仿</h3><ul><li>👆 指物：右右开始用食指指东西，这是沟通的重要里程碑，回应他的指向并命名物品</li><li>📚 阅读：厚纸板书最合适，让右右自己翻页，指着图片说出名称</li><li>🎮 游戏：容器游戏——把玩具放进去再拿出来，理解"里面""外面"</li><li>😴 睡眠：保持规律作息，夜间睡眠10-12小时，白天2次小睡</li></ul></div><div class="tip-card"><h3>第3周 · 分离焦虑与安全感</h3><ul><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul></div><div class="tip-card"><h3>第4周 · 习惯巩固与月度回顾</h3><ul><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul></div></div>
+                <div class="tips-grid"><div class="tip-card"><h3>第1周 · 站立行走与语言爆发期</h3><ul><li>🚶 大运动：11月龄很多宝宝开始扶走甚至独站，每天给右右安全的扶走环境</li><li>🗣️ 语言：这个月可能出现"词汇爆发"，继续多说话、读绘本、指认日常物品</li><li>🥄 饮食：可以尝试更多家庭食物——软烂米饭、碎菜肉末、小饺子</li><li>🦷 口腔：上下门牙基本长齐，可以开始用婴儿软毛牙刷蘸米粒大小含氟牙膏</li></ul></div><div class="tip-card"><h3>第2周 · 独立意识与情绪引导</h3><ul><li>💪 独立性：右右可能开始表达"不要"，这是自我意识萌芽，给有限选择而非强制</li><li>📚 阅读：从洞洞书升级到简单故事书，每页一句话的绘本最适合</li><li>🎮 游戏：叠积木、放形状盒、按按钮玩具——锻炼手眼协调</li><li>😴 睡眠：维持21点前入睡的节奏，白天保证2次小睡</li></ul></div><div class="tip-card"><h3>第3周 · 社交扩展与安全意识</h3><ul><li>👋 社交：教右右"谢谢""再见"的手势和发音，带他看其他小朋友玩</li><li>🏠 安全：活动范围变大，检查安全隐患（桌角、插座、柜门）</li><li>🎨 创意：给他蜡笔和大纸自由涂鸦，在乎握笔体验不在乎画什么</li><li>🥛 饮食：奶量维持500-700ml即可，辅食为主，三餐两点心模式</li></ul></div><div class="tip-card"><h3>第4周 · 习惯巩固与月度回顾</h3><ul><li>✅ 习惯：巩固洗手、吃饭坐餐椅、睡前仪式等好习惯</li><li>📏 成长：11月龄体检关注体重身高头围增长曲线及血红蛋白</li><li>🧩 认知：玩简单配对游戏（颜色相同的积木放一起），培养分类思维</li><li>❤️ 陪伴：质量比时长重要——每天专注陪玩15-30分钟</li></ul></div></div>
             </div>
             <div class="edu-section">
                 <div class="edu-section-title">🎨 每日15分钟早教计划</div>
                 <div class="edu-grid"><div class="edu-card">
             <div class="edu-day">周一</div>
-            <div class="edu-type">大运动</div>
+            <div class="edu-type">🚶 大运动</div>
             <div class="edu-activity">扶走推车赛</div>
-            <div class="edu-detail">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌</div>
+            <div class="edu-detail">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌。</div>
         </div><div class="edu-card">
             <div class="edu-day">周二</div>
-            <div class="edu-type">精细动作</div>
-            <div class="edu-activity">撕纸乐</div>
-            <div class="edu-detail">给右右彩色纸巾/便签纸，让他自由撕扯，锻炼指尖力量和双手配合</div>
+            <div class="edu-type">✋ 精细动作</div>
+            <div class="edu-activity">投篮挑战</div>
+            <div class="edu-detail">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
         </div><div class="edu-card">
             <div class="edu-day">周三</div>
-            <div class="edu-type">语言启蒙</div>
+            <div class="edu-type">🗣️ 语言启蒙</div>
             <div class="edu-activity">动物叫声</div>
-            <div class="edu-detail">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音</div>
+            <div class="edu-detail">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
         </div><div class="edu-card">
             <div class="edu-day">周四</div>
-            <div class="edu-type">认知游戏</div>
+            <div class="edu-type">🧩 认知游戏</div>
             <div class="edu-activity">盒子寻宝</div>
-            <div class="edu-detail">把玩具放进纸盒，让右右打开找出来；再进阶到盖上盖子让他自己掀开</div>
+            <div class="edu-detail">当着右右面把玩具藏进纸盒，让他打开找出来；进阶：盖上盖子让他自己掀开，锻炼客体永久性认知。</div>
         </div><div class="edu-card">
             <div class="edu-day">周五</div>
-            <div class="edu-type">音乐律动</div>
+            <div class="edu-type">🎵 音乐律动</div>
             <div class="edu-activity">摇摆舞</div>
-            <div class="edu-detail">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动</div>
+            <div class="edu-detail">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动，感受节拍和律动。</div>
         </div><div class="edu-card">
             <div class="edu-day">周六</div>
-            <div class="edu-type">感官探索</div>
-            <div class="edu-activity">手指画</div>
-            <div class="edu-detail">用可食用颜料（酸奶+食用色素），让右右在浴室瓷砖上自由涂画，好冲洗</div>
+            <div class="edu-type">🎨 感官探索</div>
+            <div class="edu-activity">材质探索板</div>
+            <div class="edu-detail">准备几块不同材质（软布、泡沫、塑料、纸板），让右右用手摸、用嘴啃、用脚踩，说出"软/硬/粗/光滑"。</div>
         </div><div class="edu-card">
             <div class="edu-day">周日</div>
-            <div class="edu-type">社交互动</div>
-            <div class="edu-activity">飞吻游戏</div>
-            <div class="edu-detail">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，练习社交手势</div>
+            <div class="edu-type">❤️ 亲子互动</div>
+            <div class="edu-activity">飞吻传递</div>
+            <div class="edu-detail">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，再升级成"击掌—拥抱—飞吻"三连，练习社交手势。</div>
         </div></div>
             </div>
         </div>
 
         <div class="cards-section" id="cards-section">
             <div class="cards-grid" id="cardsGrid">
-        <div class="daily-card" id="card-5月13日" data-date="2026-05-13">
-            <div class="card-header">
-                <div class="card-date">5月13日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#F44336">🍼 360ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 360ml</span> <span class="note">初始第1天</span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 360ml</span><span class="card-assessment-badge status-bad">⚠️ 偏少</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 3次</span><span class="card-assessment-badge status-warn">⚠️ 偏少</span></div><div class="card-assessment-row"><span>大便 3次</span><span class="card-assessment-badge status-bad">⚠️ 偏多</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第2周 · 指物与模仿</div>
-                <ul class="week-tip-list"><li>👆 指物：右右开始用食指指东西，这是沟通的重要里程碑，回应他的指向并命名物品</li><li>📚 阅读：厚纸板书最合适，让右右自己翻页，指着图片说出名称</li><li>🎮 游戏：容器游戏——把玩具放进去再拿出来，理解"里面""外面"</li><li>😴 睡眠：保持规律作息，夜间睡眠10-12小时，白天2次小睡</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月14日" data-date="2026-05-14">
-            <div class="card-header">
-                <div class="card-date">5月14日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#F44336">🍼 340ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 340ml</span> <span class="note">初始第2天</span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 340ml</span><span class="card-assessment-badge status-bad">⚠️ 偏少</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 3次</span><span class="card-assessment-badge status-warn">⚠️ 偏少</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第2周 · 指物与模仿</div>
-                <ul class="week-tip-list"><li>👆 指物：右右开始用食指指东西，这是沟通的重要里程碑，回应他的指向并命名物品</li><li>📚 阅读：厚纸板书最合适，让右右自己翻页，指着图片说出名称</li><li>🎮 游戏：容器游戏——把玩具放进去再拿出来，理解"里面""外面"</li><li>😴 睡眠：保持规律作息，夜间睡眠10-12小时，白天2次小睡</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月15日" data-date="2026-05-15">
-            <div class="card-header">
-                <div class="card-date">5月15日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#F44336">🍼 530ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 530ml</span> <span class="note">初始第3天</span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 530ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 5次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月16日" data-date="2026-05-16">
-            <div class="card-header">
-                <div class="card-date">5月16日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 720ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 720ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 4次</span><span class="card-assessment-badge status-warn">⚠️ 偏少</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月17日" data-date="2026-05-17">
-            <div class="card-header">
-                <div class="card-date">5月17日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 720ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 720ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 4次</span><span class="card-assessment-badge status-warn">⚠️ 偏少</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月18日" data-date="2026-05-18">
-            <div class="card-header">
-                <div class="card-date">5月18日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 680ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 680ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">1顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 680ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月19日" data-date="2026-05-19">
-            <div class="card-header">
-                <div class="card-date">5月19日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 700ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 8小时10分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">9:10</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">11:35</span> <span class="tag food">🥄 小米南瓜蛋黄粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">12:40</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">15:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 南瓜小米粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:10</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">22:50</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div><div class="item"><span class="time">23:50</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:20-08:30</span> <span class="tag sleep">😴 夜间长睡眠 连续8小时10分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 700ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 8h10m</span><span class="card-assessment-badge status-bad">⚠️ 不足</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 3次</span><span class="card-assessment-badge status-bad">⚠️ 偏多</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月20日" data-date="2026-05-20">
-            <div class="card-header">
-                <div class="card-date">5月20日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 640ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 640ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">2顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 640ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月21日" data-date="2026-05-21">
-            <div class="card-header">
-                <div class="card-date">5月21日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 630ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 9小时40分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">24:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">9:30</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 土豆猪肉南瓜餐</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:50</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">17:40</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">19:00</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:24-08:30</span> <span class="tag sleep">😴 夜间长睡眠 连续8小时6分钟</span></div><div class="item"><span class="time">9:30-11:00</span> <span class="tag sleep">😴 白天小睡 1小时30分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 630ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 9h40m</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第3周 · 分离焦虑与安全感</div>
-                <ul class="week-tip-list"><li>🤗 分离焦虑：这个月可能出现，出门前简短告别不要偷偷溜走，建立"妈妈会回来"的信任</li><li>🏠 安全：爬行范围扩大，确保楼梯有围栏、尖锐物品收好</li><li>🎨 创意：让右右拍打不同材质（锅盖、纸盒、枕头），感受声音和触觉差异</li><li>🥛 饮食：奶量维持600-800ml，辅食2-3顿，尝试手指食物</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月22日" data-date="2026-05-22">
-            <div class="card-header">
-                <div class="card-date">5月22日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 690ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 8小时50分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">24:20</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:55</span> <span class="tag food">🥄 丝瓜猪肉米粉粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:20</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div><div class="item"><span class="time">16:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:40</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:40-09:30</span> <span class="tag sleep">😴 夜间长睡眠 连续8小时50分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 690ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 8h50m</span><span class="card-assessment-badge status-bad">⚠️ 不足</span></div><div class="card-assessment-row"><span>小便 5次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月23日" data-date="2026-05-23">
-            <div class="card-header">
-                <div class="card-date">5月23日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#F44336">🍼 590ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">全天</span> <span class="tag milk">🍼 奶粉 590ml</span> <span class="note"></span></div><div class="item"><span class="time">全天</span> <span class="tag food">🥄 辅食</span> <span class="note">2顿</span></div>
-                
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 590ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>小便 4次</span><span class="card-assessment-badge status-warn">⚠️ 偏少</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月24日" data-date="2026-05-24">
-            <div class="card-header">
-                <div class="card-date">5月24日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 820ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
-                    <span class="badge" style="background:#2196F3">😴 9小时50分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">8:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 蛋黄青菜粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 青菜粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">22:35-07:25</span> <span class="tag sleep">😴 夜间长睡眠 连续9小时25分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 820ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 9h50m</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月25日" data-date="2026-05-25">
-            <div class="card-header">
-                <div class="card-date">5月25日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 695ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 9小时40分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">24:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">8:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜鸡丝小米粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:57</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">21:40-07:30</span> <span class="tag sleep">😴 夜间长睡眠 连续9小时50分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 695ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 9h40m</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月26日" data-date="2026-05-26">
-            <div class="card-header">
-                <div class="card-date">5月26日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 620ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 8小时10分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 粥 蛋黄 青菜</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 粥 青菜</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:20-10:30</span> <span class="tag sleep">😴 夜间长睡眠 累计9小时10分钟，8:20-9:00醒1小时</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 620ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 8h10m</span><span class="card-assessment-badge status-bad">⚠️ 不足</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月27日" data-date="2026-05-27">
-            <div class="card-header">
-                <div class="card-date">5月27日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 680ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 7小时20分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">24:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜鸡丝小米粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:57</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:40-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续7小时20分钟</span></div><div class="item"><span class="time">12:45-14:05</span> <span class="tag sleep">😴 白天小睡 1小时20分钟</span></div><div class="item"><span class="time">20:40-23:35</span> <span class="tag sleep">😴 傍晚小睡 2小时55分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 680ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 7h20m</span><span class="card-assessment-badge status-bad">⚠️ 不足</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月28日" data-date="2026-05-28">
-            <div class="card-header">
-                <div class="card-date">5月28日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 9小时25分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">8:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:15</span> <span class="tag food">🥄 蛋黄青菜粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 青菜粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">22:35-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续9小时25分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 720ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 9h25m</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月29日" data-date="2026-05-29">
-            <div class="card-header">
-                <div class="card-date">5月29日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 750ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 7小时50分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 苋菜肝粉小米粥+小土豆1.5个</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:10</span> <span class="tag milk">🍼 奶粉 200ml</span> <span class="note"></span></div><div class="item"><span class="time">17:00</span> <span class="tag food">🥄 苋菜小米粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">18:40</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:10-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续7小时50分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 750ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 7h50m</span><span class="card-assessment-badge status-bad">⚠️ 不足</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月30日" data-date="2026-05-30">
-            <div class="card-header">
-                <div class="card-date">5月30日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#FF9800">🍼 690ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 10小时15分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">8:45</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:30</span> <span class="tag food">🥄 苋菜肝粉小米粥+小土豆1.5个</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">17:00</span> <span class="tag food">🥄 苋菜小米粥</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">18:40</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">22:05-08:20</span> <span class="tag sleep">😴 夜间长睡眠 连续10小时15分钟</span></div><div class="item"><span class="time">11:00-11:40</span> <span class="tag sleep">😴 白天小睡 40分钟</span></div><div class="item"><span class="time">14:40-16:30</span> <span class="tag sleep">😴 白天小睡 1小时50分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 690ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 10h15m</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>小便 5次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
-        <div class="daily-card" id="card-5月31日" data-date="2026-05-31">
-            <div class="card-header">
-                <div class="card-date">5月31日</div>
-                <div class="card-badges">
-                    <span class="badge" style="background:#4CAF50">🍼 750ml</span>
-                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
-                    <span class="badge" style="background:#2196F3">😴 7小时20分钟</span>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="item"><span class="time">24:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜鸡丝小米粥</span> <span class="note">第1顿辅食</span></div><div class="item"><span class="time">14:25</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:57</span> <span class="tag food">🥄 辅食</span> <span class="note">第2顿辅食</span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
-                <div class="item"><span class="time">00:40-08:00</span> <span class="tag sleep">😴 夜间长睡眠 连续7小时20分钟</span></div><div class="item"><span class="time">12:45-14:05</span> <span class="tag sleep">😴 白天小睡 1小时20分钟</span></div><div class="item"><span class="time">20:40-23:35</span> <span class="tag sleep">😴 傍晚小睡 2小时55分钟</span></div>
-                <div class="item"><span class="tag pee">💧 小便 1次</span> <span class="note">全天</span></div>
-                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">全天</span></div>
-            </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 750ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 7h20m</span><span class="card-assessment-badge status-bad">⚠️ 不足</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
-            <div class="card-footer">
-                <div class="week-tip-title">第4周 · 习惯巩固与月度回顾</div>
-                <ul class="week-tip-list"><li>✅ 习惯：继续巩固餐椅进食、睡前仪式，重复让宝宝有安全感</li><li>📏 成长：关注体重身高增长曲线，注意是否缺铁缺锌</li><li>🧩 认知：玩"东西去哪了"的游戏——当着右右的面藏玩具让他找</li><li>❤️ 陪伴：专注陪伴比时长重要，放下手机，每天15-30分钟全心互动</li></ul>
-            </div>
-        </div>
-        
         <div class="daily-card" id="card-6月1日" data-date="2026-06-01">
             <div class="card-header">
                 <div class="card-date">6月1日</div>
@@ -615,10 +198,736 @@
                 <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">8:20, 12:00, 13:45, 16:10, 18:40, 20:00, 22:12</span></div>
                 <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">9:00</span></div>
             </div>
-            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 720ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠 9h25m</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 720ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h25m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 22:35</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
             <div class="card-footer">
-                <div class="week-tip-title">第1周 · 扶站与爬行精炼</div>
-                <ul class="week-tip-list"><li>🚶 大运动：10月龄宝宝扶站越来越稳，鼓励右右扶着家具横移，也可以用推车练习迈步</li><li>🗣️ 语言：开始理解简单指令"给我""不行"，多和右右对话，用夸张语调吸引模仿</li><li>🥄 饮食：辅食可以逐步增加颗粒感——软烂米饭、碎菜肉末，锻炼咀嚼能力</li><li>🦷 口腔：继续用湿纱布或硅胶指套清洁牙齿，出牙期注意安抚</li></ul>
+                <div class="week-tip-title">✋ 今日早教 · 精细动作｜投篮挑战</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月2日" data-date="2026-06-02">
+            <div class="card-header">
+                <div class="card-date">6月2日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 700ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时35分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 青菜肝粉粥</span> <span class="note"></span></div><div class="item"><span class="time">13:20</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">17:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">19:40</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:15-7:50</span> <span class="tag sleep">😴 夜间睡眠 约7小时35分，白天小睡未记</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">8:20, 10:20, 12:15, 13:10, 14:00, 16:00, 18:00, 19:20, 21:20, 23:50</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">22:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 700ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 7h35m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:15</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 11次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🗣️ 今日早教 · 语言启蒙｜动物叫声</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月3日" data-date="2026-06-03">
+            <div class="card-header">
+                <div class="card-date">6月3日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 680ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时30分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:00</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">12:05</span> <span class="tag food">🥄 青菜瘦肉粥</span> <span class="note"></span></div><div class="item"><span class="time">13:25</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:20</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">20:15</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:15-07:45</span> <span class="tag sleep">😴 夜间睡眠 约7小时30分，白天小睡约2h（上午30min+下午1.5h）</span></div>
+                <div class="item"><span class="tag pee">💧 小便 6次</span> <span class="note">8:20, 11:45, 13:10, 15:45, 17:40, 23:40</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span> <span class="note">16:10, 19:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 680ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 7h30m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 00:15</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🧩 今日早教 · 认知游戏｜盒子寻宝</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">当着右右面把玩具藏进纸盒，让他打开找出来；进阶：盖上盖子让他自己掀开，锻炼客体永久性认知。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月4日" data-date="2026-06-04">
+            <div class="card-header">
+                <div class="card-date">6月4日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 540ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时5分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:00</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">8:35</span> <span class="tag milk">🍼 奶粉 190ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 黄瓜猪肉粥</span> <span class="note"></span></div><div class="item"><span class="time">13:30</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">16:50</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag food">🥄 黄瓜猪肉粥</span> <span class="note"></span></div><div class="item"><span class="time">20:45</span> <span class="tag milk">🍼 奶粉 50ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:35-08:40</span> <span class="tag sleep">😴 夜间睡眠 约8小时5分，白天上午1h+下午1h</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">8:10, 11:00, 12:40, 13:45, 17:00, 19:25, 20:15, 24:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">23:00</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 540ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 8h5m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 00:35</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎵 今日早教 · 音乐律动｜摇摆舞</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动，感受节拍和律动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月5日" data-date="2026-06-05">
+            <div class="card-header">
+                <div class="card-date">6月5日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 600ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:50</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 南瓜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">12:40</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">18:15</span> <span class="tag food">🥄 南瓜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">20:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">23:30</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note">吐光</span></div>
+                <div class="item"><span class="time">24:30-08:30</span> <span class="tag sleep">😴 夜间睡眠 约8小时，白天中午1h</span></div>
+                <div class="item"><span class="tag pee">💧 小便 6次</span> <span class="note">9:30, 11:45, 14:10, 15:40, 16:50, 23:20</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span> <span class="note">18:30, 19:48</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 600ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 8h0m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎨 今日早教 · 感官探索｜材质探索板</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">准备几块不同材质（软布、泡沫、塑料、纸板），让右右用手摸、用嘴啃、用脚踩，说出"软/硬/粗/光滑"。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月6日" data-date="2026-06-06">
+            <div class="card-header">
+                <div class="card-date">6月6日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 710ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 10小时15分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">4:58</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">9:50</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 番茄三文鱼粥</span> <span class="note">一点点</span></div><div class="item"><span class="time">12:55</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">16:00</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">18:00</span> <span class="tag food">🥄 青菜三文鱼粥</span> <span class="note"></span></div><div class="item"><span class="time">21:10</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">21:15-07:30</span> <span class="tag sleep">😴 夜间睡眠 约10小时15分，白天下午约2h</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">9:40, 12:30, 14:00, 14:50, 16:20, 19:57, 21:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">18:45</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 710ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 10h15m</span><span class="card-assessment-badge status-good">✅ 时长达标</span></div><div class="card-assessment-row"><span>入睡时间 21:15</span><span class="card-assessment-badge status-good">✅ 入睡早</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">👍 21点前入睡，生长激素分泌最佳</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">❤️ 今日早教 · 亲子互动｜飞吻传递</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，再升级成"击掌—拥抱—飞吻"三连，练习社交手势。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月7日" data-date="2026-06-07">
+            <div class="card-header">
+                <div class="card-date">6月7日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 690ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时15分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:30</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 蛋黄丝瓜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:20</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">18:50</span> <span class="tag food">🥄 丝瓜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">20:20</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">23:20</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:30-07:45</span> <span class="tag sleep">😴 夜间睡眠 约7小时15分；白天上午30min+下午30min+晚上小睡40min</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">8:15, 11:30, 13:10, 16:10, 18:10, 20:10, 22:50</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">14:05</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 690ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 7h15m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🚶 今日早教 · 大运动｜扶走推车赛</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月8日" data-date="2026-06-08">
+            <div class="card-header">
+                <div class="card-date">6月8日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 540ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:00</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:10</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 南瓜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">15:00</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div><div class="item"><span class="time">16:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag food">🥄 南瓜猪肉末粥</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 70ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">20:40-06:30</span> <span class="tag sleep">😴 夜间睡眠 约9小时50分；白天中午1h</span></div>
+                <div class="item"><span class="tag pee">💧 小便 6次</span> <span class="note">8:20, 11:00, 12:30, 15:30, 16:50, 19:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span> <span class="note">15:50, 20:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 540ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 9h50m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 20:40</span><span class="card-assessment-badge status-good">✅ 入睡早</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">👍 21点前入睡，生长激素分泌最佳</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">✋ 今日早教 · 精细动作｜投篮挑战</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月9日" data-date="2026-06-09">
+            <div class="card-header">
+                <div class="card-date">6月9日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 810ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">7:00</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">10:40</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">13:00</span> <span class="tag food">🥄 青菜牛肉碎碎面</span> <span class="note"></span></div><div class="item"><span class="time">14:40</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">18:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">19:30</span> <span class="tag food">🥄 青菜牛肉碎碎面</span> <span class="note">一点点</span></div><div class="item"><span class="time">20:45</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:35-7:35</span> <span class="tag sleep">😴 夜间睡眠 约9小时；白天7:10-10:00、13:20-13:50、18:10-18:40</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">6:40, 10:10, 12:35, 14:30, 15:40, 18:10, 20:30, 21:55</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">22:30</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 810ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h0m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 22:35</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 9次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🗣️ 今日早教 · 语言启蒙｜动物叫声</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月10日" data-date="2026-06-10">
+            <div class="card-header">
+                <div class="card-date">6月10日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 490ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">11:40</span> <span class="tag food">🥄 青菜牛肉粥</span> <span class="note"></span></div><div class="item"><span class="time">13:15</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">16:10</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag food">🥄 青菜牛肉粥</span> <span class="note"></span></div><div class="item"><span class="time">23:00</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:30-8:30</span> <span class="tag sleep">😴 夜间睡眠 约8小时</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">8:20, 11:20, 13:00, 15:10, 16:50, 18:40, 20:10, 21:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">23:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 490ml</span><span class="card-assessment-badge status-bad">⚠️ 偏少</span></div><div class="card-assessment-row"><span>睡眠时长 8h0m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🧩 今日早教 · 认知游戏｜盒子寻宝</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">当着右右面把玩具藏进纸盒，让他打开找出来；进阶：盖上盖子让他自己掀开，锻炼客体永久性认知。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月11日" data-date="2026-06-11">
+            <div class="card-header">
+                <div class="card-date">6月11日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 470ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:50</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">14:10</span> <span class="tag food">🥄 青菜猪肉粥</span> <span class="note"></span></div><div class="item"><span class="time">15:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:50</span> <span class="tag food">🥄 青菜猪肉粥</span> <span class="note"></span></div><div class="item"><span class="time">21:10</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">23:35</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">23:37-8:37</span> <span class="tag sleep">😴 夜间睡眠 约9小时</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">8:40, 10:50, 14:25, 16:45, 17:50, 19:10, 20:50, 21:45</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">22:30</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 470ml</span><span class="card-assessment-badge status-bad">⚠️ 偏少</span></div><div class="card-assessment-row"><span>睡眠时长 9h0m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 23:37</span><span class="card-assessment-badge status-bad">⚠️ 偏晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议睡前仪式提前到20:30，逐步将入睡时间前移</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎵 今日早教 · 音乐律动｜摇摆舞</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动，感受节拍和律动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月12日" data-date="2026-06-12">
+            <div class="card-header">
+                <div class="card-date">6月12日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 550ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时30分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:00</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">11:15</span> <span class="tag food">🥄 南瓜粥</span> <span class="note"></span></div><div class="item"><span class="time">13:25</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">17:10</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">19:20</span> <span class="tag food">🥄 南瓜粥</span> <span class="note"></span></div><div class="item"><span class="time">21:35</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">23:20-9:40</span> <span class="tag sleep">😴 夜间睡眠 约8小时30分（01:20-01:30中间醒了一下）</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">8:45, 11:20, 12:20, 13:20, 15:30, 17:00, 18:20, 19:20, 20:40, 23:10</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">20:55</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 550ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 8h30m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 23:20</span><span class="card-assessment-badge status-bad">⚠️ 偏晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议睡前仪式提前到20:30，逐步将入睡时间前移</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎨 今日早教 · 感官探索｜材质探索板</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">准备几块不同材质（软布、泡沫、塑料、纸板），让右右用手摸、用嘴啃、用脚踩，说出"软/硬/粗/光滑"。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月13日" data-date="2026-06-13">
+            <div class="card-header">
+                <div class="card-date">6月13日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 590ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时30分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:50</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 米饭+红薯</span> <span class="note"></span></div><div class="item"><span class="time">13:00</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div><div class="item"><span class="time">16:24</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:10</span> <span class="tag food">🥄 红薯小米粥</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">23:14</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">01:00-9:30</span> <span class="tag sleep">😴 夜间睡眠 约8小时30分；白天14:00-15:40、21:20-22:10两次小睡</span></div>
+                <div class="item"><span class="tag pee">💧 小便 4次</span> <span class="note">10:30, 11:20, 20:40, 22:55</span></div>
+                <div class="item"><span class="tag poop">💩 大便 未记录</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 590ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 8h30m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 01:00</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 4次</span><span class="card-assessment-badge status-warn">⚠️ 偏少</span></div><div class="card-assessment-row"><span>大便 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">❤️ 今日早教 · 亲子互动｜飞吻传递</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，再升级成"击掌—拥抱—飞吻"三连，练习社交手势。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月14日" data-date="2026-06-14">
+            <div class="card-header">
+                <div class="card-date">6月14日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 470ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 10小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:40</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 蛋+米饭</span> <span class="note"></span></div><div class="item"><span class="time">14:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">17:20</span> <span class="tag food">🥄 小米粥</span> <span class="note"></span></div><div class="item"><span class="time">20:40</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">23:20</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:30-11:20</span> <span class="tag sleep">😴 夜间睡眠 约10小时50分；白天12:40-13:40、16:45-20:20两次小睡</span></div>
+                <div class="item"><span class="tag pee">💧 小便 6次</span> <span class="note">9:35, 11:35, 14:20, 17:00, 20:30, 23:05</span></div>
+                <div class="item"><span class="tag poop">💩 大便 未记录</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 470ml</span><span class="card-assessment-badge status-bad">⚠️ 偏少</span></div><div class="card-assessment-row"><span>睡眠时长 10h50m</span><span class="card-assessment-badge status-good">✅ 时长达标</span></div><div class="card-assessment-row"><span>入睡时间 24:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 6次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🚶 今日早教 · 大运动｜扶走推车赛</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月15日" data-date="2026-06-15">
+            <div class="card-header">
+                <div class="card-date">6月15日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 595ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时40分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:30</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">11:40</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">13:30</span> <span class="tag food">🥄 小米蛋花粥+青菜</span> <span class="note"></span></div><div class="item"><span class="time">15:00</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">18:20</span> <span class="tag food">🥄 小米粥+青菜</span> <span class="note"></span></div><div class="item"><span class="time">20:15</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">23:50</span> <span class="tag milk">🍼 奶粉 145ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">01:50-10:30</span> <span class="tag sleep">😴 夜间睡眠 约8小时40分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">11:30, 12:00, 13:00, 14:30, 15:50, 17:50, 19:40, 20:20, 22:47, 23:25</span></div>
+                <div class="item"><span class="tag poop">💩 大便 3次</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 595ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 8h40m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 01:50</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 3次</span><span class="card-assessment-badge status-bad">⚠️ 偏多</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">✋ 今日早教 · 精细动作｜投篮挑战</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月16日" data-date="2026-06-16">
+            <div class="card-header">
+                <div class="card-date">6月16日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 550ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时45分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">00:15</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">10:40</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">11:40</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">13:00</span> <span class="tag food">🥄 鸡肉青菜小米汤</span> <span class="note"></span></div><div class="item"><span class="time">15:30</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">16:40</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">18:50</span> <span class="tag food">🥄 鸡肉青菜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">21:20</span> <span class="tag milk">🍼 奶粉 60ml</span> <span class="note"></span></div><div class="item"><span class="time">21:35</span> <span class="tag milk">🍼 奶粉 50ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:35-10:20</span> <span class="tag sleep">😴 夜间睡眠 约9小时45分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">10:40, 12:40, 15:00, 16:40, 17:50, 19:50, 21:30, 23:45</span></div>
+                <div class="item"><span class="tag poop">💩 大便 未记录</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 550ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 9h45m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 00:35</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🗣️ 今日早教 · 语言启蒙｜动物叫声</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月17日" data-date="2026-06-17">
+            <div class="card-header">
+                <div class="card-date">6月17日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 450ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:10</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">10:50</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div><div class="item"><span class="time">12:20</span> <span class="tag food">🥄 蛋黄青菜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">15:20</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">18:10</span> <span class="tag food">🥄 小米粥</span> <span class="note"></span></div><div class="item"><span class="time">20:20</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">01:00-10:20</span> <span class="tag sleep">😴 夜间睡眠 约9小时20分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 9次</span> <span class="note">10:25, 12:50, 14:40, 15:40, 16:30, 17:40, 20:05, 22:00, 23:50</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">19:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 450ml</span><span class="card-assessment-badge status-bad">⚠️ 偏少</span></div><div class="card-assessment-row"><span>睡眠时长 9h20m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 01:00</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 9次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🧩 今日早教 · 认知游戏｜盒子寻宝</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">当着右右面把玩具藏进纸盒，让他打开找出来；进阶：盖上盖子让他自己掀开，锻炼客体永久性认知。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月18日" data-date="2026-06-18">
+            <div class="card-header">
+                <div class="card-date">6月18日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 660ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:20</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">8:45</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">11:30</span> <span class="tag food">🥄 猪肉青菜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">13:50</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">16:10</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 猪肉青菜小米粥</span> <span class="note"></span></div><div class="item"><span class="time">20:25</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:30-9:20</span> <span class="tag sleep">😴 夜间睡眠 约8小时50分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">8:30, 12:30, 13:40, 14:40, 16:30, 17:20, 18:20, 19:20, 20:00, 24:10</span></div>
+                <div class="item"><span class="tag poop">💩 大便 未记录</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 660ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 8h50m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎵 今日早教 · 音乐律动｜摇摆舞</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动，感受节拍和律动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月19日" data-date="2026-06-19">
+            <div class="card-header">
+                <div class="card-date">6月19日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 660ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:50</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 青菜猪肉小米粥</span> <span class="note"></span></div><div class="item"><span class="time">14:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">16:40</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">20:10</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">22:15</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:40-8:30</span> <span class="tag sleep">😴 夜间睡眠 约9小时50分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">9:40, 12:40, 14:05, 16:27, 18:25, 19:25, 22:10</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">20:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 660ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h50m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 22:40</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎨 今日早教 · 感官探索｜材质探索板</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">准备几块不同材质（软布、泡沫、塑料、纸板），让右右用手摸、用嘴啃、用脚踩，说出"软/硬/粗/光滑"。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月20日" data-date="2026-06-20">
+            <div class="card-header">
+                <div class="card-date">6月20日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#F44336">🍼 570ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">😴 12小时30分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:30</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">12:50</span> <span class="tag food">🥄 青菜鸡肉小米粥</span> <span class="note"></span></div><div class="item"><span class="time">15:50</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">19:30</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">22:10</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:20-10:50</span> <span class="tag sleep">😴 夜间睡眠 约12小时30分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">8:30, 11:00, 12:40, 15:45, 19:00, 20:10, 22:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">16:30</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 570ml</span><span class="card-assessment-badge status-warn">📈 接近</span></div><div class="card-assessment-row"><span>睡眠时长 12h30m</span><span class="card-assessment-badge status-good">✅ 时长达标</span></div><div class="card-assessment-row"><span>入睡时间 22:20</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">❤️ 今日早教 · 亲子互动｜飞吻传递</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，再升级成"击掌—拥抱—飞吻"三连，练习社交手势。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月21日" data-date="2026-06-21">
+            <div class="card-header">
+                <div class="card-date">6月21日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 630ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">😴 10小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:00</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 青菜猪肉粥</span> <span class="note"></span></div><div class="item"><span class="time">14:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">16:00</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">19:45</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:40</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">23:30-9:30</span> <span class="tag sleep">😴 夜间睡眠 约10小时</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">9:00, 11:30, 13:30, 16:30, 18:20, 19:40, 22:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 未记录</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 630ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 10h0m</span><span class="card-assessment-badge status-good">✅ 时长达标</span></div><div class="card-assessment-row"><span>入睡时间 23:30</span><span class="card-assessment-badge status-bad">⚠️ 偏晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div><div class="card-assessment-tip">建议睡前仪式提前到20:30，逐步将入睡时间前移</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🚶 今日早教 · 大运动｜扶走推车赛</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月22日" data-date="2026-06-22">
+            <div class="card-header">
+                <div class="card-date">6月22日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 800ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:15</span> <span class="tag milk">🍼 奶粉 80ml</span> <span class="note"></span></div><div class="item"><span class="time">9:55</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 肉青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">13:35</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">15:40</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">20:05</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">22:15</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:30-8:30</span> <span class="tag sleep">😴 夜间睡眠 约8小时</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">9:40, 11:30, 14:10, 16:00, 17:00, 18:00, 19:50, 21:00, 23:00, 24:05</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">21:25</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 800ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 8h0m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">✋ 今日早教 · 精细动作｜投篮挑战</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月23日" data-date="2026-06-23">
+            <div class="card-header">
+                <div class="card-date">6月23日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 630ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 11小时0分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:20</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 青菜虾子粥</span> <span class="note"></span></div><div class="item"><span class="time">13:45</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">15:50</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag food">🥄 青菜虾子粥</span> <span class="note"></span></div><div class="item"><span class="time">20:15</span> <span class="tag milk">🍼 奶粉 110ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 90ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:30-9:30</span> <span class="tag sleep">😴 夜间睡眠 约11小时</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">9:00, 10:40, 12:10, 13:20, 14:10, 15:40, 18:05, 19:00, 20:25, 21:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 未记录</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 630ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 11h0m</span><span class="card-assessment-badge status-good">✅ 时长达标</span></div><div class="card-assessment-row"><span>入睡时间 22:30</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🗣️ 今日早教 · 语言启蒙｜动物叫声</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月24日" data-date="2026-06-24">
+            <div class="card-header">
+                <div class="card-date">6月24日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 710ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">10:10</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">12:10</span> <span class="tag food">🥄 蔬菜牛肉粥</span> <span class="note"></span></div><div class="item"><span class="time">13:20</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">15:20</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">16:50</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 蔬菜牛肉粥</span> <span class="note"></span></div><div class="item"><span class="time">20:30</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">01:00-9:20</span> <span class="tag sleep">😴 夜间睡眠 约8小时20分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">9:50, 11:45, 13:08, 14:50, 17:25, 18:40, 19:30, 20:15, 21:30, 22:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 710ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 8h20m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 01:00</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🧩 今日早教 · 认知游戏｜盒子寻宝</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">当着右右面把玩具藏进纸盒，让他打开找出来；进阶：盖上盖子让他自己掀开，锻炼客体永久性认知。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月25日" data-date="2026-06-25">
+            <div class="card-header">
+                <div class="card-date">6月25日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 700ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时50分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:40</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">11:40</span> <span class="tag food">🥄 猪肉青菜稀饭</span> <span class="note"></span></div><div class="item"><span class="time">14:20</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">16:40</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">19:20</span> <span class="tag food">🥄 猪肉青菜稀饭</span> <span class="note"></span></div><div class="item"><span class="time">21:00</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div><div class="item"><span class="time">23:40</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">00:30-8:20</span> <span class="tag sleep">😴 夜间睡眠 约7小时50分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">9:20, 10:40, 11:45, 12:40, 15:30, 17:20, 18:35, 19:45, 20:30, 21:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">14:20</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 700ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 7h50m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 00:30</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎵 今日早教 · 音乐律动｜摇摆舞</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动，感受节拍和律动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月26日" data-date="2026-06-26">
+            <div class="card-header">
+                <div class="card-date">6月26日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 720ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">24:30</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div><div class="item"><span class="time">8:40</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">11:40</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">13:15</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">16:10</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">20:20</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:40-10:00</span> <span class="tag sleep">😴 夜间睡眠 约9小时20分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 11次</span> <span class="note">2:00, 8:30, 10:50, 13:25, 15:50, 16:40, 17:50, 20:00, 22:00, 23:10, 24:40</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span> <span class="note">12:05, 18:50</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 720ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h20m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 24:40</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 11次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎨 今日早教 · 感官探索｜材质探索板</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">准备几块不同材质（软布、泡沫、塑料、纸板），让右右用手摸、用嘴啃、用脚踩，说出"软/硬/粗/光滑"。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月27日" data-date="2026-06-27">
+            <div class="card-header">
+                <div class="card-date">6月27日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 630ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">10:53</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:10</span> <span class="tag food">🥄 粥+米饭</span> <span class="note"></span></div><div class="item"><span class="time">13:35</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">16:48</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 猪肉鸡肉粥+玉米</span> <span class="note"></span></div><div class="item"><span class="time">20:15</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time"></span> <span class="tag sleep">😴 夜间睡眠 未记录</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">10:30, 12:40, 16:00, 17:25, 19:40, 20:25, 22:20</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">21:30</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 630ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>入睡时间 未记录</span><span class="card-assessment-badge status-warn">📋 未记录</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">❤️ 今日早教 · 亲子互动｜飞吻传递</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，再升级成"击掌—拥抱—飞吻"三连，练习社交手势。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月28日" data-date="2026-06-28">
+            <div class="card-header">
+                <div class="card-date">6月28日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 890ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">❓ 未记录</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">9:45</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">12:30</span> <span class="tag food">🥄 点心+鸡麦</span> <span class="note"></span></div><div class="item"><span class="time">13:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">16:30</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">19:00</span> <span class="tag food">🥄 饼干</span> <span class="note"></span></div><div class="item"><span class="time">22:20</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time"></span> <span class="tag sleep">😴 夜间睡眠 未记录</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">9:30, 11:00, 13:30, 16:19, 17:40, 19:50, 22:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">16:40</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 890ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 未记录</span><span class="card-assessment-badge status-warn">📋 无数据</span></div><div class="card-assessment-row"><span>入睡时间 未记录</span><span class="card-assessment-badge status-warn">📋 未记录</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🚶 今日早教 · 大运动｜扶走推车赛</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">让右右推着学步推车或小椅子，从客厅一端走到另一端，家人在终点加油鼓掌。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月29日" data-date="2026-06-29">
+            <div class="card-header">
+                <div class="card-date">6月29日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 730ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时40分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:35</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">11:55</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">13:30</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">16:10</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">18:40</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">20:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">22:00</span> <span class="tag milk">🍼 奶粉 40ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:20-8:00</span> <span class="tag sleep">😴 夜间睡眠 约9小时40分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">8:20, 10:10, 11:40, 12:40, 13:40, 14:10, 16:00, 18:00, 19:50, 21:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 730ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h40m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 22:20</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">✋ 今日早教 · 精细动作｜投篮挑战</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-6月30日" data-date="2026-06-30">
+            <div class="card-header">
+                <div class="card-date">6月30日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 830ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时30分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:50</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 蛋黄青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">13:35</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">15:28</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">17:50</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">20:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">22:05</span> <span class="tag milk">🍼 奶粉 140ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:10-7:40</span> <span class="tag sleep">😴 夜间睡眠 约9小时30分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">8:30, 11:30, 12:35, 13:20, 14:15, 16:20, 18:00</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span> <span class="note">20:20, 21:30</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 830ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h30m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 22:10</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🗣️ 今日早教 · 语言启蒙｜动物叫声</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-7月1日" data-date="2026-07-01">
+            <div class="card-header">
+                <div class="card-date">7月1日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 610ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 9小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:35</span> <span class="tag milk">🍼 奶粉 200ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 菜肉粥+米饭</span> <span class="note"></span></div><div class="item"><span class="time">13:15</span> <span class="tag milk">🍼 奶粉 130ml</span> <span class="note">加零食</span></div><div class="item"><span class="time">17:50</span> <span class="tag food">🥄 菜肉粥</span> <span class="note"></span></div><div class="item"><span class="time">20:00</span> <span class="tag milk">🍼 奶粉 120ml</span> <span class="note"></span></div><div class="item"><span class="time">22:25</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:30-7:50</span> <span class="tag sleep">😴 夜间睡眠 约9小时20分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">8:10, 11:00, 12:30, 14:50, 16:50, 19:00, 20:30, 22:10</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 610ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 9h20m</span><span class="card-assessment-badge status-warn">📈 时长接近</span></div><div class="card-assessment-row"><span>入睡时间 22:30</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">✋ 今日早教 · 精细动作｜投篮挑战</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿一个小盆或纸箱当篮框，让右右把软球/小玩具投进去，距离由近到远，每次成功都夸张地欢呼。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-7月2日" data-date="2026-07-02">
+            <div class="card-header">
+                <div class="card-date">7月2日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 690ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时55分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:50</span> <span class="tag milk">🍼 奶粉 210ml</span> <span class="note"></span></div><div class="item"><span class="time">11:20</span> <span class="tag food">🥄 虾菜粥</span> <span class="note"></span></div><div class="item"><span class="time">14:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">16:45</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag food">🥄 虾菜粥</span> <span class="note"></span></div><div class="item"><span class="time">20:45</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">22:40-7:35</span> <span class="tag sleep">😴 夜间睡眠 约8小时55分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 10次</span> <span class="note">8:20, 10:20, 12:10, 13:40, 14:10, 16:30, 18:00, 19:30, 20:30, 22:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">20:55</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 690ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 8h55m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 22:40</span><span class="card-assessment-badge status-warn">📈 稍偏晚</span></div><div class="card-assessment-row"><span>小便 10次</span><span class="card-assessment-badge status-warn">📈 偏多</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议提前30分钟开始睡前安抚流程</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🗣️ 今日早教 · 语言启蒙｜动物叫声</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">拿动物卡片或玩偶，示范"小猫喵喵""小狗汪汪"，鼓励右右模仿发音，不要求准确，重在互动。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-7月3日" data-date="2026-07-03">
+            <div class="card-header">
+                <div class="card-date">7月3日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#4CAF50">🍼 830ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 2顿</span>
+                    <span class="badge" style="background:#2196F3">😴 8小时10分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:55</span> <span class="tag milk">🍼 奶粉 200ml</span> <span class="note"></span></div><div class="item"><span class="time">11:50</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">13:20</span> <span class="tag milk">🍼 奶粉 150ml</span> <span class="note"></span></div><div class="item"><span class="time">16:05</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">17:55</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">20:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">23:15</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">23:40-7:50</span> <span class="tag sleep">😴 夜间睡眠 约8小时10分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 8次</span> <span class="note">8:25, 10:40, 11:50, 13:00, 15:40, 17:00, 18:40, 19:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 1次</span> <span class="note">13:35</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 830ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 8h10m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 23:40</span><span class="card-assessment-badge status-bad">⚠️ 偏晚</span></div><div class="card-assessment-row"><span>小便 8次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 1次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 2顿</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-tip">建议睡前仪式提前到20:30，逐步将入睡时间前移</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🧩 今日早教 · 认知游戏｜盒子寻宝</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">当着右右面把玩具藏进纸盒，让他打开找出来；进阶：盖上盖子让他自己掀开，锻炼客体永久性认知。</div>
+            </div>
+        </div>
+        
+        <div class="daily-card" id="card-7月4日" data-date="2026-07-04">
+            <div class="card-header">
+                <div class="card-date">7月4日</div>
+                <div class="card-badges">
+                    <span class="badge" style="background:#FF9800">🍼 600ml</span>
+                    <span class="badge" style="background:#9C27B0">🥄 1顿</span>
+                    <span class="badge" style="background:#2196F3">😴 7小时20分钟</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="item"><span class="time">8:25</span> <span class="tag milk">🍼 奶粉 180ml</span> <span class="note"></span></div><div class="item"><span class="time">12:00</span> <span class="tag food">🥄 青菜粥</span> <span class="note"></span></div><div class="item"><span class="time">16:00</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div><div class="item"><span class="time">18:30</span> <span class="tag milk">🍼 奶粉 100ml</span> <span class="note"></span></div><div class="item"><span class="time">21:30</span> <span class="tag milk">🍼 奶粉 160ml</span> <span class="note"></span></div>
+                <div class="item"><span class="time">24:40-8:00</span> <span class="tag sleep">😴 夜间睡眠 约7小时20分</span></div>
+                <div class="item"><span class="tag pee">💧 小便 7次</span> <span class="note">8:10, 11:20, 12:00, 14:00, 16:00, 17:00, 18:30</span></div>
+                <div class="item"><span class="tag poop">💩 大便 2次</span> <span class="note">21:20, 23:30</span></div>
+            </div>
+            <div class="card-assessment"><div class="card-assessment-title">📋 今日评估</div><div class="card-assessment-row"><span>奶粉 600ml</span><span class="card-assessment-badge status-good">✅ 达标</span></div><div class="card-assessment-row"><span>睡眠时长 7h20m</span><span class="card-assessment-badge status-bad">⚠️ 时长不足</span></div><div class="card-assessment-row"><span>入睡时间 24:40</span><span class="card-assessment-badge status-bad">⚠️ 很晚</span></div><div class="card-assessment-row"><span>小便 7次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>大便 2次</span><span class="card-assessment-badge status-good">✅ 正常</span></div><div class="card-assessment-row"><span>辅食 1顿</span><span class="card-assessment-badge status-bad">⚠️ 待加强</span></div><div class="card-assessment-tip">入睡已过午夜，严重影响深度睡眠和生长激素分泌，建议逐步将入睡时间前移到21-22点</div></div>
+            <div class="card-footer">
+                <div class="week-tip-title">🎵 今日早教 · 音乐律动｜摇摆舞</div>
+                <div style="font-size:0.85em;color:#558b2f;line-height:1.5;margin-top:5px;">放节奏鲜明的儿歌，抱着右右随音乐摇摆，或让他扶着沙发自己晃动，感受节拍和律动。</div>
             </div>
         </div>
         </div>
@@ -626,7 +935,7 @@
     </div>
 
     <script>
-        const allData = [{"date": "5月13日", "dateISO": "2026-05-13", "milk": 360, "pee": 3, "poop": 3, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "初始记录，奶量偏低，排便偏多"}, {"date": "5月14日", "dateISO": "2026-05-14", "milk": 340, "pee": 3, "poop": 1, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量持续偏低，排便规律"}, {"date": "5月15日", "dateISO": "2026-05-15", "milk": 530, "pee": 5, "poop": 2, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量提升，排便规律"}, {"date": "5月16日", "dateISO": "2026-05-16", "milk": 720, "pee": 4, "poop": 2, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量达标，排便规律"}, {"date": "5月17日", "dateISO": "2026-05-17", "milk": 720, "pee": 4, "poop": 1, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量稳定达标，排便健康"}, {"date": "5月18日", "dateISO": "2026-05-18", "milk": 680, "pee": 6, "poop": 1, "food": 1, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量稳定，排尿充足"}, {"date": "5月19日", "dateISO": "2026-05-19", "milk": 700, "pee": 8, "poop": 3, "food": 2, "sleep_time": "00:20", "sleep_duration": "8小时10分钟", "sleep_hours": 8, "sleep_mins": 10, "sleep_total_mins": 490, "comment": "奶量达标，辅食升级为2顿，排尿充足，睡眠连续"}, {"date": "5月20日", "dateISO": "2026-05-20", "milk": 640, "pee": 7, "poop": 1, "food": 2, "sleep_time": "凌晨", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量达标，辅食稳定2顿，排便健康"}, {"date": "5月21日", "dateISO": "2026-05-21", "milk": 630, "pee": 7, "poop": 2, "food": 2, "sleep_time": "00:24", "sleep_duration": "9小时40分钟", "sleep_hours": 9, "sleep_mins": 40, "sleep_total_mins": 580, "comment": "奶量达标，辅食稳定，睡眠时长充足"}, {"date": "5月22日", "dateISO": "2026-05-22", "milk": 690, "pee": 5, "poop": 2, "food": 2, "sleep_time": "00:40", "sleep_duration": "8小时50分钟", "sleep_hours": 8, "sleep_mins": 50, "sleep_total_mins": 530, "comment": "奶量达标，辅食稳定，排便健康"}, {"date": "5月23日", "dateISO": "2026-05-23", "milk": 590, "pee": 4, "poop": 1, "food": 2, "sleep_time": "夜间偏晚", "sleep_duration": "未知", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶量接近达标下限，辅食稳定2顿"}, {"date": "5月24日", "dateISO": "2026-05-24", "milk": 820, "pee": 6, "poop": 2, "food": 1, "sleep_time": "21:40", "sleep_duration": "9小时50分钟", "sleep_hours": 9, "sleep_mins": 50, "sleep_total_mins": 590, "comment": "奶量偏高，辅食1顿，入睡时间大幅提前，睡眠质量优秀"}, {"date": "5月25日", "dateISO": "2026-05-25", "milk": 695, "pee": 8, "poop": 1, "food": 2, "sleep_time": "21:40", "sleep_duration": "9小时40分钟", "sleep_hours": 9, "sleep_mins": 40, "sleep_total_mins": 580, "comment": "奶量完美达标，辅食2顿，入睡时间优秀，排尿充足"}, {"date": "5月26日", "dateISO": "2026-05-26", "milk": 620, "pee": 7, "poop": 1, "food": 2, "sleep_time": "00:00", "sleep_duration": "8小时10分钟", "sleep_hours": 8, "sleep_mins": 10, "sleep_total_mins": 490, "comment": "奶量达标，辅食2顿，入睡时间回退，睡眠连续"}, {"date": "5月27日", "dateISO": "2026-05-27", "milk": 680, "pee": 6, "poop": 1, "food": 2, "sleep_time": "00:20", "sleep_duration": "7小时20分钟", "sleep_hours": 7, "sleep_mins": 20, "sleep_total_mins": 440, "comment": "奶量达标，辅食2顿，睡眠时长偏短"}, {"date": "5月28日", "dateISO": "2026-05-28", "milk": 720, "pee": 6, "poop": 2, "food": 2, "sleep_time": "22:35", "sleep_duration": "9小时25分钟", "sleep_hours": 9, "sleep_mins": 25, "sleep_total_mins": 565, "comment": "奶量完美达标，辅食2顿，入睡时间优秀，睡眠充足"}, {"date": "5月29日", "dateISO": "2026-05-29", "milk": 750, "pee": 6, "poop": 1, "food": 2, "sleep_time": "00:10", "sleep_duration": "7小时50分钟", "sleep_hours": 7, "sleep_mins": 50, "sleep_total_mins": 470, "comment": "奶量达标，辅食2顿，睡眠时长偏短"}, {"date": "5月30日", "dateISO": "2026-05-30", "milk": 690, "pee": 5, "poop": 2, "food": 2, "sleep_time": "22:05", "sleep_duration": "10小时15分钟", "sleep_hours": 10, "sleep_mins": 15, "sleep_total_mins": 615, "comment": "奶量完美达标，辅食2顿，入睡时间优秀，睡眠时长拉满"}, {"date": "5月31日", "dateISO": "2026-05-31", "milk": 750, "pee": 6, "poop": 1, "food": 2, "sleep_time": "00:40", "sleep_duration": "7小时20分钟", "sleep_hours": 7, "sleep_mins": 20, "sleep_total_mins": 440, "comment": "奶量达标，辅食2顿，睡眠时长偏短"}, {"date": "6月1日", "dateISO": "2026-06-01", "milk": 720, "pee": 7, "poop": 1, "food": 2, "sleep_time": "22:35", "sleep_duration": "9小时25分钟", "sleep_hours": 9, "sleep_mins": 25, "sleep_total_mins": 565, "comment": "奶粉720ml共5次，辅食2顿，小便7次大便1次，夜睡9h25m质量不错"}];
+        const allData = [{"date": "6月1日", "dateISO": "2026-06-01", "milk": 720, "pee": 7, "poop": 1, "food": 2, "sleep_time": "22:35", "sleep_duration": "9小时25分钟", "sleep_hours": 9, "sleep_mins": 25, "sleep_total_mins": 565, "comment": "奶粉720ml共5次，辅食2顿，小便7次大便1次，夜睡9h25m质量不错"}, {"date": "6月2日", "dateISO": "2026-06-02", "milk": 700, "pee": 11, "poop": 1, "food": 2, "sleep_time": "24:15", "sleep_duration": "7小时35分钟", "sleep_hours": 7, "sleep_mins": 35, "sleep_total_mins": 455, "comment": "奶粉700ml，5次；辅食2顿；小便11次大便1次；夜睡7h35m，白天小睡未记"}, {"date": "6月3日", "dateISO": "2026-06-03", "milk": 680, "pee": 6, "poop": 2, "food": 2, "sleep_time": "00:15", "sleep_duration": "7小时30分钟", "sleep_hours": 7, "sleep_mins": 30, "sleep_total_mins": 450, "comment": "奶粉680ml，5次；辅食2顿；小便6次大便2次；夜睡7h30m，白天小睡约2h"}, {"date": "6月4日", "dateISO": "2026-06-04", "milk": 540, "pee": 8, "poop": 1, "food": 2, "sleep_time": "00:35", "sleep_duration": "8小时5分钟", "sleep_hours": 8, "sleep_mins": 5, "sleep_total_mins": 485, "comment": "奶粉540ml，5次；辅食2顿；小便8次大便1次；夜睡8h5m，白天上午1h+下午1h"}, {"date": "6月5日", "dateISO": "2026-06-05", "milk": 600, "pee": 6, "poop": 2, "food": 2, "sleep_time": "24:30", "sleep_duration": "8小时0分钟", "sleep_hours": 8, "sleep_mins": 0, "sleep_total_mins": 480, "comment": "奶粉600ml有效（23:30的180ml吐光不计），5次；辅食2顿；小便6次大便2次；夜睡8h，白天中午1h"}, {"date": "6月6日", "dateISO": "2026-06-06", "milk": 710, "pee": 7, "poop": 1, "food": 2, "sleep_time": "21:15", "sleep_duration": "10小时15分钟", "sleep_hours": 10, "sleep_mins": 15, "sleep_total_mins": 615, "comment": "奶粉710ml，5次；辅食2顿；小便7次大便1次；夜睡10h15m，白天下午约2h"}, {"date": "6月7日", "dateISO": "2026-06-07", "milk": 690, "pee": 7, "poop": 1, "food": 2, "sleep_time": "24:30", "sleep_duration": "7小时15分钟", "sleep_hours": 7, "sleep_mins": 15, "sleep_total_mins": 435, "comment": "奶粉690ml，5次；辅食2顿；小便7次大便1次；夜睡7h15m，白天上午30min+下午30min+晚间40min"}, {"date": "6月8日", "dateISO": "2026-06-08", "milk": 540, "pee": 6, "poop": 2, "food": 2, "sleep_time": "20:40", "sleep_duration": "9小时50分钟", "sleep_hours": 9, "sleep_mins": 50, "sleep_total_mins": 590, "comment": "奶粉540ml，5次；辅食2顿；小便6次大便2次；夜睡9h50m，白天中午1h"}, {"date": "6月9日", "dateISO": "2026-06-09", "milk": 810, "pee": 9, "poop": 1, "food": 2, "sleep_time": "22:35", "sleep_duration": "9小时0分钟", "sleep_hours": 9, "sleep_mins": 0, "sleep_total_mins": 540, "comment": "奶粉810ml，6次；辅食2顿；小便9次大便1次；夜睡9h，白天3次小睡"}, {"date": "6月10日", "dateISO": "2026-06-10", "milk": 490, "pee": 8, "poop": 1, "food": 2, "sleep_time": "24:30", "sleep_duration": "8小时0分钟", "sleep_hours": 8, "sleep_mins": 0, "sleep_total_mins": 480, "comment": "奶粉490ml，4次；辅食2顿（青菜牛肉粥）；小便8次大便1次；夜睡8h"}, {"date": "6月11日", "dateISO": "2026-06-11", "milk": 470, "pee": 8, "poop": 1, "food": 2, "sleep_time": "23:37", "sleep_duration": "9小时0分钟", "sleep_hours": 9, "sleep_mins": 0, "sleep_total_mins": 540, "comment": "奶粉470ml，4次；辅食2顿（青菜猪肉粥×2）；小便8次大便1次；夜睡9h"}, {"date": "6月12日", "dateISO": "2026-06-12", "milk": 550, "pee": 10, "poop": 1, "food": 2, "sleep_time": "23:20", "sleep_duration": "8小时30分钟", "sleep_hours": 8, "sleep_mins": 30, "sleep_total_mins": 510, "comment": "奶粉550ml，4次；辅食2顿（南瓜粥）；小便10次大便1次；夜睡8h30m"}, {"date": "6月13日", "dateISO": "2026-06-13", "milk": 590, "pee": 4, "poop": 0, "food": 2, "sleep_time": "01:00", "sleep_duration": "8小时30分钟", "sleep_hours": 8, "sleep_mins": 30, "sleep_total_mins": 510, "comment": "奶粉590ml，5次；辅食2顿（米饭+红薯/红薯小米粥）；小便4次；夜睡8h30m，白天2次小睡"}, {"date": "6月14日", "dateISO": "2026-06-14", "milk": 470, "pee": 6, "poop": 0, "food": 2, "sleep_time": "24:30", "sleep_duration": "10小时50分钟", "sleep_hours": 10, "sleep_mins": 50, "sleep_total_mins": 650, "comment": "奶粉470ml，4次；辅食2顿（蛋+米饭/小米粥）；小便6次；夜睡10h50m，白天2次小睡"}, {"date": "6月15日", "dateISO": "2026-06-15", "milk": 595, "pee": 10, "poop": 3, "food": 2, "sleep_time": "01:50", "sleep_duration": "8小时40分钟", "sleep_hours": 8, "sleep_mins": 40, "sleep_total_mins": 520, "comment": "奶粉595ml，5次；辅食2顿；小便10次大便3次；夜睡8h40m"}, {"date": "6月16日", "dateISO": "2026-06-16", "milk": 550, "pee": 8, "poop": 0, "food": 2, "sleep_time": "00:35", "sleep_duration": "9小时45分钟", "sleep_hours": 9, "sleep_mins": 45, "sleep_total_mins": 585, "comment": "奶粉550ml，7次；辅食2顿（鸡肉青菜小米粥）；小便8次；夜睡9h45m"}, {"date": "6月17日", "dateISO": "2026-06-17", "milk": 450, "pee": 9, "poop": 1, "food": 2, "sleep_time": "01:00", "sleep_duration": "9小时20分钟", "sleep_hours": 9, "sleep_mins": 20, "sleep_total_mins": 560, "comment": "奶粉450ml，4次；辅食2顿（蛋黄青菜小米粥）；小便9次大便1次；夜睡9h20m"}, {"date": "6月18日", "dateISO": "2026-06-18", "milk": 660, "pee": 10, "poop": 0, "food": 2, "sleep_time": "24:30", "sleep_duration": "8小时50分钟", "sleep_hours": 8, "sleep_mins": 50, "sleep_total_mins": 530, "comment": "奶粉660ml，5次；辅食2顿（猪肉青菜小米粥）；小便10次；夜睡8h50m"}, {"date": "6月19日", "dateISO": "2026-06-19", "milk": 660, "pee": 7, "poop": 1, "food": 1, "sleep_time": "22:40", "sleep_duration": "9小时50分钟", "sleep_hours": 9, "sleep_mins": 50, "sleep_total_mins": 590, "comment": "奶粉660ml，5次；辅食1顿（青菜猪肉小米粥）；小便7次大便1次；夜睡9h50m"}, {"date": "6月20日", "dateISO": "2026-06-20", "milk": 570, "pee": 7, "poop": 1, "food": 1, "sleep_time": "22:20", "sleep_duration": "12小时30分钟", "sleep_hours": 12, "sleep_mins": 30, "sleep_total_mins": 750, "comment": "奶粉570ml，4次；辅食1顿（青菜鸡肉小米粥）；小便7次大便1次；夜睡12h30m"}, {"date": "6月21日", "dateISO": "2026-06-21", "milk": 630, "pee": 7, "poop": 0, "food": 1, "sleep_time": "23:30", "sleep_duration": "10小时0分钟", "sleep_hours": 10, "sleep_mins": 0, "sleep_total_mins": 600, "comment": "奶粉630ml，5次；辅食1顿（青菜猪肉粥）；小便7次；夜睡10h"}, {"date": "6月22日", "dateISO": "2026-06-22", "milk": 800, "pee": 10, "poop": 2, "food": 1, "sleep_time": "24:30", "sleep_duration": "8小时0分钟", "sleep_hours": 8, "sleep_mins": 0, "sleep_total_mins": 480, "comment": "奶粉800ml，6次；辅食1顿（肉青菜粥）；小便10次大便2次；夜睡8h"}, {"date": "6月23日", "dateISO": "2026-06-23", "milk": 630, "pee": 10, "poop": 0, "food": 2, "sleep_time": "22:30", "sleep_duration": "11小时0分钟", "sleep_hours": 11, "sleep_mins": 0, "sleep_total_mins": 660, "comment": "奶粉630ml，5次；辅食2顿（青菜虾子粥）；小便10次；夜睡11h"}, {"date": "6月24日", "dateISO": "2026-06-24", "milk": 710, "pee": 8, "poop": 2, "food": 2, "sleep_time": "01:00", "sleep_duration": "8小时20分钟", "sleep_hours": 8, "sleep_mins": 20, "sleep_total_mins": 500, "comment": "奶粉710ml，5次；辅食2顿（蔬菜牛肉粥）；小便8次大便2次；夜睡8h20m"}, {"date": "6月25日", "dateISO": "2026-06-25", "milk": 700, "pee": 10, "poop": 1, "food": 2, "sleep_time": "00:30", "sleep_duration": "7小时50分钟", "sleep_hours": 7, "sleep_mins": 50, "sleep_total_mins": 470, "comment": "奶粉700ml，5次；辅食2顿（猪肉青菜稀饭）；小便10次大便1次；夜睡7h50m"}, {"date": "6月26日", "dateISO": "2026-06-26", "milk": 720, "pee": 11, "poop": 2, "food": 2, "sleep_time": "24:40", "sleep_duration": "9小时20分钟", "sleep_hours": 9, "sleep_mins": 20, "sleep_total_mins": 560, "comment": "奶粉720ml，5次；辅食2顿（青菜粥）；小便11次大便2次；夜睡9h20m"}, {"date": "6月27日", "dateISO": "2026-06-27", "milk": 630, "pee": 7, "poop": 1, "food": 2, "sleep_time": "未记录", "sleep_duration": "未记录", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶粉630ml，4次；辅食2顿（粥+米饭/猪肉鸡肉粥+玉米）；小便7次大便1次；睡眠未记录"}, {"date": "6月28日", "dateISO": "2026-06-28", "milk": 890, "pee": 7, "poop": 1, "food": 2, "sleep_time": "未记录", "sleep_duration": "未记录", "sleep_hours": 0, "sleep_mins": 0, "sleep_total_mins": 0, "comment": "奶粉890ml，5次；辅食2顿（点心鸡麦/饼干）；小便7次大便1次；睡眠未记录"}, {"date": "6月29日", "dateISO": "2026-06-29", "milk": 730, "pee": 10, "poop": 2, "food": 2, "sleep_time": "22:20", "sleep_duration": "9小时40分钟", "sleep_hours": 9, "sleep_mins": 40, "sleep_total_mins": 580, "comment": "奶粉730ml，5次；辅食2顿（青菜粥）；小便10次大便2次；夜睡9h40m"}, {"date": "6月30日", "dateISO": "2026-06-30", "milk": 830, "pee": 7, "poop": 2, "food": 2, "sleep_time": "22:10", "sleep_duration": "9小时30分钟", "sleep_hours": 9, "sleep_mins": 30, "sleep_total_mins": 570, "comment": "奶粉830ml，5次；辅食2顿（蛋黄青菜粥/青菜粥）；小便7次大便2次；夜睡9h30m"}, {"date": "7月1日", "dateISO": "2026-07-01", "milk": 610, "pee": 8, "poop": 1, "food": 2, "sleep_time": "22:30", "sleep_duration": "9小时20分钟", "sleep_hours": 9, "sleep_mins": 20, "sleep_total_mins": 560, "comment": "奶粉610ml，4次；辅食2顿（菜肉粥+米饭/菜肉粥）；小便8次大便1次；夜睡9h20m"}, {"date": "7月2日", "dateISO": "2026-07-02", "milk": 690, "pee": 10, "poop": 2, "food": 2, "sleep_time": "22:40", "sleep_duration": "8小时55分钟", "sleep_hours": 8, "sleep_mins": 55, "sleep_total_mins": 535, "comment": "奶粉690ml，4次；辅食2顿（虾菜粥）；小便10次大便2次；夜睡8h55m"}, {"date": "7月3日", "dateISO": "2026-07-03", "milk": 830, "pee": 8, "poop": 1, "food": 2, "sleep_time": "23:40", "sleep_duration": "8小时10分钟", "sleep_hours": 8, "sleep_mins": 10, "sleep_total_mins": 490, "comment": "奶粉830ml，5次；辅食2顿（青菜粥）；小便8次大便1次；夜睡8h10m"}, {"date": "7月4日", "dateISO": "2026-07-04", "milk": 600, "pee": 7, "poop": 2, "food": 1, "sleep_time": "24:40", "sleep_duration": "7小时20分钟", "sleep_hours": 7, "sleep_mins": 20, "sleep_total_mins": 440, "comment": "奶粉600ml，4次；辅食1顿（青菜粥）；小便7次大便2次；夜睡7h20m"}];
         let currentFilter = 7;
         let charts = {};
 
