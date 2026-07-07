@@ -98,6 +98,21 @@
         .status-good { background:#c8e6c9; color:#2e7d32; }
         .status-warn { background:#ffecb3; color:#f57f17; }
         .status-bad { background:#ffcdd2; color:#c62828; }
+        /* 体检记录 */
+        .checkup-section { margin-top:30px; }
+        .checkup-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; }
+        .checkup-card { background:rgba(255,255,255,0.9); border-radius:18px; padding:20px; box-shadow:0 6px 24px rgba(0,0,0,0.08); border:2px solid rgba(255,255,255,0.5); }
+        .checkup-date { font-size:1.1em; font-weight:800; color:#1b5e20; margin-bottom:12px; }
+        .checkup-metrics { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+        .metric { background:rgba(129,199,132,0.12); border-radius:12px; padding:10px 12px; display:flex; flex-direction:column; }
+        .m-label { font-size:0.78em; color:#666; font-weight:600; }
+        .m-value { font-size:1.5em; font-weight:800; color:#1b5e20; }
+        .m-value i { font-size:0.5em; font-style:normal; color:#888; margin-left:2px; }
+        .checkup-tags { display:flex; flex-wrap:wrap; gap:8px; }
+        .checkup-tag { padding:4px 12px; border-radius:12px; font-size:0.82em; font-weight:700; }
+        .tag-warn { background:#fff3e0; color:#e65100; }
+        .tag-info { background:#e3f2fd; color:#1565c0; }
+        .checkup-note { font-size:0.82em; color:#558b2f; line-height:1.5; margin-top:10px; background:rgba(129,199,132,0.1); border-radius:10px; padding:8px 10px; }
         /* 每日卡片内的评估 */
         .card-assessment { background:rgba(129,199,132,0.13); border-radius:14px; padding:14px 16px; margin-top:14px; margin-bottom:8px; }
         .card-assessment-title { font-weight:700; font-size:0.95em; margin-bottom:8px; color:#1b5e20; }
@@ -115,7 +130,7 @@
     <div class="container">
         <div class="header">
             <h1>🌱 右右成长记录</h1>
-            <div class="subtitle">11月龄28天 · 2026年7月5日</div>
+            <div class="subtitle">1岁 · 2026年7月7日</div>
         </div>
         <div class="nav">
             <button class="nav-btn active" onclick="showSection('dashboard')">📊 仪表盘</button>
@@ -138,7 +153,7 @@
             </div>
             <div class="tips-section">
                 <div style="text-align:center;font-size:1.4em;color:#1b5e20;margin-bottom:20px;font-weight:700;">💡 本月育儿小贴士</div>
-                <div class="tips-grid"><div class="tip-card"><h3>第1周 · 站立行走与语言爆发期</h3><ul><li>🚶 大运动：11月龄很多宝宝开始扶走甚至独站，每天给右右安全的扶走环境</li><li>🗣️ 语言：这个月可能出现"词汇爆发"，继续多说话、读绘本、指认日常物品</li><li>🥄 饮食：可以尝试更多家庭食物——软烂米饭、碎菜肉末、小饺子</li><li>🦷 口腔：上下门牙基本长齐，可以开始用婴儿软毛牙刷蘸米粒大小含氟牙膏</li></ul></div><div class="tip-card"><h3>第2周 · 独立意识与情绪引导</h3><ul><li>💪 独立性：右右可能开始表达"不要"，这是自我意识萌芽，给有限选择而非强制</li><li>📚 阅读：从洞洞书升级到简单故事书，每页一句话的绘本最适合</li><li>🎮 游戏：叠积木、放形状盒、按按钮玩具——锻炼手眼协调</li><li>😴 睡眠：维持21点前入睡的节奏，白天保证2次小睡</li></ul></div><div class="tip-card"><h3>第3周 · 社交扩展与安全意识</h3><ul><li>👋 社交：教右右"谢谢""再见"的手势和发音，带他看其他小朋友玩</li><li>🏠 安全：活动范围变大，检查安全隐患（桌角、插座、柜门）</li><li>🎨 创意：给他蜡笔和大纸自由涂鸦，在乎握笔体验不在乎画什么</li><li>🥛 饮食：奶量维持500-700ml即可，辅食为主，三餐两点心模式</li></ul></div><div class="tip-card"><h3>第4周 · 习惯巩固与月度回顾</h3><ul><li>✅ 习惯：巩固洗手、吃饭坐餐椅、睡前仪式等好习惯</li><li>📏 成长：11月龄体检关注体重身高头围增长曲线及血红蛋白</li><li>🧩 认知：玩简单配对游戏（颜色相同的积木放一起），培养分类思维</li><li>❤️ 陪伴：质量比时长重要——每天专注陪玩15-30分钟</li></ul></div></div>
+                <div class="tips-grid"><div class="tip-card"><h3>第1周 · 独立行走与探索</h3><ul><li>🚶 大运动：满1岁很多宝宝能独走几步，提供安全开阔空间，光脚走路更利于平衡感</li><li>🗣️ 语言：鼓励仿说简单词（爸妈、球、拿），每天读绘本、指认物品名称</li><li>🥄 饮食：三餐为主+两点心，练习用勺子和抓食，培养自主进食</li><li>🦷 口腔：每天刷牙2次，用含氟牙膏（米粒大小），餐后漱口</li></ul></div><div class="tip-card"><h3>第2周 · 自主进食与规则意识</h3><ul><li>🍽️ 自主进食：给右右专属餐具，允许弄脏，重点在"自己吃"的体验</li><li>📚 阅读：1岁是阅读习惯固化期，固定睡前读绘本仪式，中英文交替输入</li><li>🎮 游戏：堆叠套杯、形状配对盒，锻炼因果认知和精细动作</li><li>😴 睡眠：目标21点前入睡，夜间9-11小时+白天1-2次小睡</li></ul></div><div class="tip-card"><h3>第3周 · 语言启蒙与社交</h3><ul><li>👋 社交：多和同龄宝宝互动，教"谢谢""拜拜"手势，理解轮流玩</li><li>🏠 安全：会走后探索欲强，锁好柜门抽屉、收好小物件防误吞</li><li>🎨 创意：蜡笔涂鸦、玩橡皮泥（监护下），享受感官体验</li><li>🥛 饮食：奶量维持400-600ml，辅食多样化保证铁和钙摄入</li></ul></div><div class="tip-card"><h3>第4周 · 习惯巩固与月度回顾</h3><ul><li>✅ 习惯：巩固餐椅进食、刷牙、睡前仪式，1岁是规则意识萌芽期</li><li>📏 成长：1岁体检关注身高体重头围曲线、血红蛋白及视力筛查</li><li>🧩 认知：玩"找躲起来的玩具"、简单分类，培养逻辑思维</li><li>❤️ 陪伴：质量比时长重要——每天专注陪玩15-30分钟</li></ul></div></div>
             </div>
             <div class="edu-section">
                 <div class="edu-section-title">🎨 每日15分钟早教计划</div>
@@ -177,6 +192,21 @@
             <div class="edu-type">❤️ 亲子互动</div>
             <div class="edu-activity">飞吻传递</div>
             <div class="edu-detail">教右右把手放嘴边"啵"一声再伸出，和家人互送飞吻，再升级成"击掌—拥抱—飞吻"三连，练习社交手势。</div>
+        </div></div>
+            </div>
+            <div class="checkup-section">
+                <div class="edu-section-title">🏥 体检记录</div>
+                <div class="checkup-grid">
+        <div class="checkup-card">
+            <div class="checkup-date">📅 2026-07-07 · 1岁0天</div>
+            <div class="checkup-metrics">
+                <div class="metric"><span class="m-label">身高</span><span class="m-value">76.5<i>cm</i></span></div>
+                <div class="metric"><span class="m-label">体重</span><span class="m-value">8.8<i>kg</i></span></div>
+                <div class="metric"><span class="m-label">头围</span><span class="m-value">45.8<i>cm</i></span></div>
+                <div class="metric"><span class="m-label">前囟</span><span class="m-value">1.8×1.8</span></div>
+            </div>
+            <div class="checkup-tags"><span class="checkup-tag tag-warn">缺铁</span><span class="checkup-tag tag-warn">缺钙</span><span class="checkup-tag tag-info">轻微散光</span></div>
+            <div class="checkup-note">出生低体重2.4kg，一年追至8.8kg，生长曲线追赶良好</div>
         </div></div>
             </div>
         </div>
