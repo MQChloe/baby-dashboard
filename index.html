@@ -118,6 +118,19 @@
         .tag-warn { background:#fff3e0; color:#e65100; }
         .tag-info { background:#e3f2fd; color:#1565c0; }
         .checkup-note { font-size:0.82em; color:#558b2f; line-height:1.5; margin-top:10px; background:rgba(129,199,132,0.1); border-radius:10px; padding:8px 10px; }
+        .checkup-sub { font-size:0.84em; color:#1565c0; line-height:1.5; margin-top:10px; background:rgba(33,150,243,0.08); border-radius:10px; padding:8px 10px; }
+        .tag-ok { background:#e8f5e9; color:#2e7d32; }
+        /* 养护要点 */
+        .care-section { margin-top:30px; }
+        .care-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:18px; }
+        .care-card { background:rgba(255,255,255,0.92); border-radius:18px; padding:18px 20px; box-shadow:0 6px 24px rgba(0,0,0,0.08); border:2px solid rgba(255,255,255,0.5); }
+        .care-head { display:flex; align-items:center; gap:12px; margin-bottom:12px; padding-bottom:10px; border-bottom:2px dashed rgba(129,199,132,0.4); }
+        .care-icon { font-size:1.9em; }
+        .care-title { font-size:1.1em; font-weight:800; color:#1b5e20; }
+        .care-level { font-size:0.76em; color:#689f38; font-weight:600; margin-top:2px; }
+        .care-list { margin:0; padding-left:18px; }
+        .care-list li { font-size:0.85em; color:#424242; line-height:1.65; margin-bottom:7px; }
+        .care-list li b { color:#2e7d32; }
         /* 每日卡片内的评估 */
         .card-assessment { background:rgba(129,199,132,0.13); border-radius:14px; padding:14px 16px; margin-top:14px; margin-bottom:8px; }
         .card-assessment-title { font-weight:700; font-size:0.95em; margin-bottom:8px; color:#1b5e20; }
@@ -135,7 +148,7 @@
     <div class="container">
         <div class="header">
             <h1>🌱 右右成长记录</h1>
-            <div class="subtitle">1岁1个月30天 · 2026年9月6日</div>
+            <div class="subtitle">1岁3个月1天 · 2026年10月8日</div>
         </div>
         <div class="nav">
             <button class="nav-btn active" onclick="showSection('dashboard')">📊 仪表盘</button>
@@ -250,15 +263,103 @@
                 <div class="edu-section-title">🏥 体检记录</div>
                 <div class="checkup-grid">
         <div class="checkup-card">
+            <div class="checkup-date">📅 2026-10-08 · 1岁3个月1天</div>
+            <div class="checkup-metrics">
+                <div class="metric"><span class="m-label">身高</span><span class="m-value">79.2<i>cm</i></span></div><div class="metric"><span class="m-label">体重</span><span class="m-value">9.3<i>kg</i></span></div><div class="metric"><span class="m-label">BMI</span><span class="m-value">14.8</span></div><div class="metric"><span class="m-label">血红蛋白</span><span class="m-value">125<i>g/L</i></span></div><div class="metric"><span class="m-label">MCV</span><span class="m-value">79.3<i>fL</i></span></div><div class="metric"><span class="m-label">嗜酸粒细胞</span><span class="m-value">7<i>%</i></span></div>
+            </div>
+            <div class="checkup-sub"><b>👁 视力：</b>双眼散光-1.25D(超出参考)，远视储备+0.75D偏少</div>
+            <div class="checkup-tags"><span class="checkup-tag tag-info">散光</span><span class="checkup-tag tag-ok">血红蛋白125 正常</span><span class="checkup-tag tag-warn">MCV 79.3↓</span></div>
+            <div class="checkup-note">身高79.2cm≈50分位，体重9.3kg≈15-20分位，BMI14.8偏瘦；出生2.4kg(<3分位,38周+3足月SGA)，15月龄追赶达标。血红蛋白125正常，缺铁已纠正；MCV79.3↓提示铁储备未满、建议查铁蛋白。嗜酸7.00%↑待观察(过敏/虫积)。散光右-1.25D左-1.25D、球镜+0.75D远视储备偏少，建议儿童眼科散瞳验光复查。</div>
+        </div>
+
+        <div class="checkup-card">
             <div class="checkup-date">📅 2026-07-07 · 1岁0天</div>
             <div class="checkup-metrics">
-                <div class="metric"><span class="m-label">身高</span><span class="m-value">76.5<i>cm</i></span></div>
-                <div class="metric"><span class="m-label">体重</span><span class="m-value">8.8<i>kg</i></span></div>
-                <div class="metric"><span class="m-label">头围</span><span class="m-value">45.8<i>cm</i></span></div>
-                <div class="metric"><span class="m-label">前囟</span><span class="m-value">1.8×1.8</span></div>
+                <div class="metric"><span class="m-label">身高</span><span class="m-value">76.5<i>cm</i></span></div><div class="metric"><span class="m-label">体重</span><span class="m-value">8.8<i>kg</i></span></div><div class="metric"><span class="m-label">BMI</span><span class="m-value">15.0</span></div><div class="metric"><span class="m-label">头围</span><span class="m-value">45.8<i>cm</i></span></div><div class="metric"><span class="m-label">前囟</span><span class="m-value">1.8×1.8</span></div>
             </div>
-            <div class="checkup-tags"><span class="checkup-tag tag-warn">缺铁</span><span class="checkup-tag tag-warn">缺钙</span><span class="checkup-tag tag-info">轻微散光</span></div>
+            
+            <div class="checkup-tags"><span class="checkup-tag tag-warn">缺铁</span><span class="checkup-tag tag-warn">缺钙</span><span class="checkup-tag tag-info">散光</span></div>
             <div class="checkup-note">出生低体重2.4kg，一年追至8.8kg，生长曲线追赶良好</div>
+        </div></div>
+            </div>
+            <div class="care-section">
+                <div class="edu-section-title">📋 15月龄养护要点 <span style="font-size:0.55em;color:#689f38;font-weight:600;">（2026-10-08 更新）</span></div>
+                <div class="care-grid">
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">🦷</span>
+                <div>
+                    <div class="care-title">牙齿护理</div>
+                    <div class="care-level">每天必做</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>频次</b>：早晚各1次，晚上那次最重要（夜间唾液少最易龋）</li><li><b>工具</b>：小头软毛儿童牙刷（3个月一换）＋ <b>含氟牙膏米粒大小</b>（此量国际公认安全，不用怕吞咽）</li><li><b>手法</b>：躺在你腿上头朝你刷；牙刷与牙面45°小幅打圈，外面→里面→咬合面各5-10下，带过舌面，共2分钟</li><li><b>铁剂</b>：用吸管/喂药器送到舌根后方避开牙齿，服完立刻漱口（牙齿发黑最大嫌疑就是铁剂染色）</li><li><b>戒奶睡</b>：最后一顿奶 → 喝几口温水 → 刷牙 → 睡。喝完奶直接睡是龋齿头号原因</li><li><b>待办</b>：尽快挂<b>儿童口腔科</b>做第一次检查，判断黑色是色素还是早期龋，顺便问<b>涂氟</b>（一般18月龄起）</li></ul>
+        </div>
+
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">🍚</span>
+                <div>
+                    <div class="care-title">奶量与辅食</div>
+                    <div class="care-level">每天必做</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>奶</b>：500ml/天（400-600都正常），不要在此之外加码追50分位</li><li><b>每日量</b>：谷物50-100g ／ 肉禽鱼50-75g ／ 蛋1个 ／ 蔬菜50-150g ／ 水果50-150g（<b>常温</b>）／ 油5-10g ／ 盐&lt;1.5g</li><li><b>一日表</b>：09:00奶150-200 → 09:30早餐(主食＋蛋) → 12:30午餐(全天最实在：软饭＋肉鱼肝＋2种菜) → 15:30奶150＋小点心 → 18:30晚餐七分饱(19点前吃完) → 21:00睡前奶 → 刷牙 → 睡</li><li><b>不再「大人吃什么他吃什么」</b>：成人菜油盐对他脾胃是负担，每餐单独盛一碗少盐少油、多煮十分钟的软烂版</li><li><b>补铁继续</b>：血红蛋白虽已正常，MCV偏低说明库存未补满 → 红肉／猪肝每周3-4次，配西兰花番茄等维C菜</li><li><b>错峰2小时</b>：铁剂与奶、钙剂必须错开2小时，同服等于白吃</li><li><b>提能量密度</b>：软饭要稠不喝汤泡饭、每餐掌心大蛋白、辅食滴几滴核桃油/芝麻酱——偏瘦娃最怕稀汤水占肚子</li></ul>
+        </div>
+
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">💬</span>
+                <div>
+                    <div class="care-title">语言与手势</div>
+                    <div class="care-level">每天必做</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>当前水平</b>：会指物、叫名字有反应、简单指令听得懂、会叫爸爸妈妈 → <b>输入在线，只是输出慢</b>，属「开口晚」不是危险信号</li><li><b>要补的是手势</b>（目前还不会挥手再见、点头摇头）：每次出门/挂电话全家夸张挥手「拜拜」，他不动就<b>抓着他的小手挥一挥</b>再放开；用选择场景练点头摇头（「要不要喝水？」说完停顿示范点头）</li><li><b>把「指了就给」升级成「指了要发声」</b>：指着饼干时先命名「饼～干」，<b>等3-5秒</b>，他发出任何近似音再给并大力回应——这一步最出语言</li><li><b>平行说话</b>：描述他正在做的事（「宝宝推汽车，嘟嘟嘟」），不用考问（少说「这是什么」）</li><li><b>+1扩展</b>：他说「车」你回「红色的车」；他说「要」你回「宝宝要喝水」</li><li><b>绘本</b>：每天15-20分钟，<b>同一本反复读</b>，动词配动作；<b>18月龄前零屏幕</b>（视频通话除外）</li><li><b>复评节点</b>：18月龄（2027-01-07）。届时≥10个词＋2-3个手势＝正常；仍&lt;10个词或手势仍没有 → 去儿童保健科/发育行为科做量表筛查</li><li><b>更早就医的触发点</b>：已会的词或手势<b>突然倒退</b>／眼神交流变少／叫名字反应变差／不再指物</li></ul>
+        </div>
+
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">📏</span>
+                <div>
+                    <div class="care-title">生长追赶</div>
+                    <div class="care-level">已达标，保持即可</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>追赶曲线</b>：出生2.4kg（同孕龄&lt;3分位）→ 1岁8.8kg（≈18分位）→ 15月龄9.3kg（≈20分位）</li><li><b>身高更漂亮</b>：79.2cm ≈ 50分位（中位数），「肾主骨」这条线已完全追平，不必担心未来身高趋势</li><li><b>38周+3足月</b>：不需校正月龄。2.4kg属<b>小于胎龄儿(SGA)</b>，SGA追赶标准为2岁前达≥10分位——他15个月已提前达标</li><li><b>别再追50分位</b>：他走的是「温和稳步追赶＋偏瘦体型」，这是SGA宝宝最健康的模式；猛喂追到超重反而抬高成年代谢风险</li><li><b>称重频率</b>：1个月一次足够（天天称200-300g波动是水分）</li><li><b>警报线</b>：体重连续2个月不增或下降／跌破-2SD／一年身高长不足5cm</li></ul>
+        </div>
+
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">😴</span>
+                <div>
+                    <div class="care-title">睡眠与脾胃</div>
+                    <div class="care-level">每天必做</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>趴睡撅屁股</b>：15个月会翻身的孩子趴睡是<b>安全的</b>，不用半夜翻过来；但老话「卧喜覆卧者，腹中当有积滞」——提示肚子想被压着，脾胃在喊话</li><li><b>要调理的信号</b>（中2条以上）：食欲忽好忽差、口气酸臭、大便干结或酸臭、入睡翻来覆去夜醒磨牙流口水、腹胀轻拍咚咚响、舌苔厚腻手心偏热</li><li><b>晚饭七分饱</b>，19:00之后除奶不进食；主食轮换小米／山药／南瓜；水果每天不超一个拳头且常温（「忌生冷」）</li><li><b>推拿</b>（饭后半小时，每天一次）：顺时针<b>摩腹</b>3-5分钟 → <b>捏脊</b>5-7遍（尾椎→大椎）→ <b>揉板门</b>1-2分钟 → <b>补脾经</b>300次 → <b>揉二人上马</b>200-300次（针对先天不足、语迟）</li><li><b>安全底线</b>：床垫偏硬、四周无软枕被子毛绒玩具、不用枕头</li></ul>
+        </div>
+
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">👁️</span>
+                <div>
+                    <div class="care-title">视力保护</div>
+                    <div class="care-level">长期执行</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>本次结果</b>：双眼散光 <b>-1.25D</b>（超出参考范围）＋ 球镜+0.75D（远视储备偏少）</li><li><b>待办</b>：去<b>儿童眼科做散瞳验光</b>确认（筛查仪对幼儿准确度有限）；一般≥150度考虑配镜预防弱视，125度属临界，由医生定</li><li><b>每天户外2小时</b>：自然光照是预防近视最有效的手段</li><li><b>零屏幕</b>：15月龄手机平板电视都不看</li><li><b>复查</b>：3-6个月随访，建立视力档案</li></ul>
+        </div>
+
+        <div class="care-card">
+            <div class="care-head">
+                <span class="care-icon">🌡️</span>
+                <div>
+                    <div class="care-title">发热处理</div>
+                    <div class="care-level">备用</div>
+                </div>
+            </div>
+            <ul class="care-list"><li><b>标准</b>：耳温/额温≥37.8℃、腋温≥37.3℃才算发烧；测2-3次确认，别凭手摸</li><li><b>精神状态比度数重要</b>：烧着还能玩能笑问题不大；蔫了、嗜睡才要警惕</li><li><b>退烧贴不建议</b>：只凉额头一小块，改变不了体温调定点，还可能引起寒颤反而升温</li><li><b>忌捂汗</b>：小儿稚阴稚阳，捂热易惊厥——穿盖比大人少半件</li><li><b>物理降温</b>：四肢温热时才用37℃温水擦脖子／腋窝／大腿根，<b>不用酒精</b>；手脚凉＝体温还要升，此时保暖手脚、别擦浴</li><li><b>推拿</b>：<b>清天河水</b>（前臂内侧正中，腕横纹推向肘横纹）300-500下，可反复，最温和的退热手法</li><li><b>用药</b>：≥38.5℃且明显不舒服才用退烧药（按体重），目的是缓解不适不是压到37℃以下</li><li><b>就医红线</b>：≥39.5℃或持续2-3小时退不下来／嗜睡叫不醒／惊厥囟门凸出／呼吸急促嘴唇发紫／反复呕吐尿量明显减少</li></ul>
         </div></div>
             </div>
         </div>
